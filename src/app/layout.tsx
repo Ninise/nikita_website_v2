@@ -1,8 +1,40 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+
+import localFont from 'next/font/local'
+
+const FiraCodeFont = localFont({
+  src: [
+    {
+      path: '../fonts/FiraCode-Light.ttf',
+      weight: '300',
+      style: 'light',
+    },
+    {
+      path: '../fonts/FiraCode-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/FiraCode-Medium.ttf',
+      weight: '500',
+      style: 'medium',
+    },
+    {
+      path: '../fonts/FiraCode-SemiBold.ttf',
+      weight: '600',
+      style: 'semi-bold',
+    },
+    {
+      path: '../fonts/FiraCode-Bold.ttf',
+      weight: '700',
+      style: 'bold',
+    },
+  ],
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={FiraCodeFont.className}>{children}</body>
     </html>
   )
 }
