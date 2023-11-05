@@ -29,6 +29,15 @@ const config: Config = {
       'menu-button': '#E0E3ED',
       'dark-blue': '#161822'
     },
+    letterSpacing: {
+      tightest: '-.075em',
+      tighter: '-.05em',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.025em',
+      wider: '.05em',
+      widest: '0.3em',
+    }
   },
   plugins: [],
 }
