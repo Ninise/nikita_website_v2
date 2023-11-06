@@ -1,6 +1,6 @@
 export const HomeLanding = () => {
   return (
-    <section className='grid'>
+    <section className='grid pt-32'>
       <div className='flex-col justify-self-center space-y-8'>
         <div className='flex items-center justify-center justify-between space-x-16'>
           <svg
@@ -12,7 +12,7 @@ export const HomeLanding = () => {
             <path
               d='M0 33H135M0 57H135M100.5 4L149.5 44L100.5 93.5'
               stroke='#F17A59'
-              stroke-width='10'
+              strokeWidth='10'
             />
           </svg>
 
@@ -27,7 +27,7 @@ export const HomeLanding = () => {
             <path
               d='M0 5H120M0 37H120M0 69H120'
               stroke='#4EB99D'
-              stroke-width='10'
+              strokeWidth='10'
             />
           </svg>
         </div>
@@ -84,7 +84,7 @@ export const HomeLanding = () => {
               <path
                 d='M0 5.71H80'
                 stroke='#4EB99D'
-                stroke-width='10'
+                strokeWidth='10'
               />
             </svg>
           </div>
