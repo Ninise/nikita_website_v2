@@ -27,7 +27,8 @@ const config: Config = {
       'bermuda': '#78dcca',
 
       'menu-button': '#E0E3ED',
-      'dark-blue': '#161822'
+      'dark-blue': '#161822',
+      'green': '#4EB99D'
     },
     letterSpacing: {
       tightest: '-.075em',

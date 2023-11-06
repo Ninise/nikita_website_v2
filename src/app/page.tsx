@@ -1,5 +1,6 @@
 import { HomeHeader } from '../components/home/HomeHeader';
 import { HomeLanding } from '../components/home/HomeLanding';
+import { HomeAbout } from '../components/home/HomeAbout';
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
       <main className='flex min-h-screen flex-col justify-between p-24'>
         <HomeHeader />
         <HomeLanding />
-        <div></div>
+        <HomeAbout />
       </main>
     </div>
   );
