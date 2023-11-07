@@ -21,7 +21,14 @@ export const HomeAbout = () => {
               Software Developer, based in Toronto
             </h2>
 
-            <p className='my-6'>/ 7 years / 31 project / 24/7 support /</p>
+            <div className='flex scroll-container bg-scroll-text-back h-8 my-6'>
+              <div className='flex scroll-text items-center'>
+                <p className='justify-self-center truncate'>
+                  / 7 years / 31 project / 24/7 support / 7 years / 31 project /
+                  24/7 support
+                </p>
+              </div>
+            </div>
 
             <div className='space-y-5'>
               <HomeAboutItem text='pay strong attention to app architecture and UI/ UX quality;' />
