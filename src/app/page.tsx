@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div>
       <div className='bg'></div>
-      <main className='flex min-h-screen flex-col justify-between p-24'>
-        <HomeHeader />
+      <HomeHeader />
+      <main className='flex min-h-screen flex-col justify-between p-24 max-xl:p-28'>
         <HomeLanding />
         <HomeAbout />
       </main>
