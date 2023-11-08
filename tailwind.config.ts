@@ -29,7 +29,8 @@ const config: Config = {
       'menu-button': '#E0E3ED',
       'dark-blue': '#161822',
       'green': '#4EB99D',
-      'scroll-text-back': '#7568C833'
+      'scroll-text-back': '#7568C833',
+      'skill-bubble-back': '#FFFFFF33'
     },
     letterSpacing: {
       tightest: '-.075em',

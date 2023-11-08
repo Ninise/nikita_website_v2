@@ -1,6 +1,7 @@
 import { HomeHeader } from '../components/home/HomeHeader';
 import { HomeLanding } from '../components/home/HomeLanding';
 import { HomeAbout } from '../components/home/HomeAbout';
+import { HomeSkills } from '../components/home/HomeSkills';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main className='flex min-h-screen flex-col justify-between p-24 max-xl:p-28'>
         <HomeLanding />
         <HomeAbout />
+        <HomeSkills />
       </main>
     </div>
   );
