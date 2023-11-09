@@ -6,7 +6,7 @@ import { HomeSkills } from '../components/home/HomeSkills';
 export default function Home() {
   return (
     <div>
-      <div className='bg'></div>
+      {/* <div className='bg'></div> */}
       <HomeHeader />
       <main className='flex min-h-screen flex-col justify-between p-24 max-xl:p-28'>
         <HomeLanding />

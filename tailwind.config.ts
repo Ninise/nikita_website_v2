@@ -18,7 +18,6 @@ const config: Config = {
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#ffffff',
-      'purple': '#3f3cbb',
       'midnight': '#121063',
       'metal': '#565584',
       'tahiti': '#3ab7bf',
@@ -30,7 +29,11 @@ const config: Config = {
       'dark-blue': '#161822',
       'green': '#4EB99D',
       'scroll-text-back': '#7568C833',
-      'skill-bubble-back': '#FFFFFF33'
+      'skill-bubble-back': '#FFFFFF33',
+
+      'purple': '#7568C8',
+      'orange': '#F17A59',
+      
     },
     letterSpacing: {
       tightest: '-.075em',
