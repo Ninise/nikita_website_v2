@@ -33,6 +33,7 @@ const config: Config = {
 
       'purple': '#7568C8',
       'orange': '#F17A59',
+      'dark-white': '#E0E3ED'
       
     },
     letterSpacing: {

@@ -97,13 +97,11 @@ export const HomeSkills = () => {
               list={[
                 'React',
                 'Redux',
+                'NextJS',
                 'Handlebars',
                 'VanillaJS',
-                'Mongoose',
-                'Python',
-                'Postgres',
-                'Pydantic',
-                'Sqlalchemy',
+                'TypeScript',
+                'Tailwind',
               ]}
             />
           </div>

@@ -2,6 +2,7 @@ import { HomeHeader } from '../components/home/HomeHeader';
 import { HomeLanding } from '../components/home/HomeLanding';
 import { HomeAbout } from '../components/home/HomeAbout';
 import { HomeSkills } from '../components/home/HomeSkills';
+import { HomeExperience } from '../components/home/HomeExperience';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <HomeLanding />
         <HomeAbout />
         <HomeSkills />
+        <HomeExperience />
       </main>
     </div>
   );
