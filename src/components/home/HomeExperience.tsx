@@ -12,7 +12,7 @@ type CategoryData = {
 };
 
 export const HomeExperience = () => {
-  const BASE_FONT_STYLE: string = 'text-2xl text-start pb-7 ';
+  const BASE_FONT_STYLE: string = 'text-2xl text-start pb-7 max-lg:text-lg ';
   const CATEGORY_SELECTED: string = 'text-purple';
   const CATEGORY_DEFAULT: string = 'text-dark-white';
 
@@ -96,104 +96,108 @@ export const HomeExperience = () => {
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10'>
             Experience
           </h2>
-          <div className='flex flex-row gap-x-5 h-80 ps-28 w-3/6'>
-            <div className='h-auto w-0.5 bg-dark-white'>
-              <div
-                className={
-                  'h-14 w-1 bg-purple ' + getSliderPosition(category)
-                }></div>
-            </div>
-            <div className='flex flex-col pt-4'>
-              <button onClick={() => selectCategory(0)}>
-                <p
-                  className={
-                    BASE_FONT_STYLE +
-                    (category == 0 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                  }>
-                  Cuemill
-                </p>
-              </button>
-              <button onClick={() => selectCategory(1)}>
-                <p
-                  className={
-                    BASE_FONT_STYLE +
-                    (category == 1 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                  }>
-                  Uplift Prayer
-                </p>
-              </button>
-              <button onClick={() => selectCategory(2)}>
-                <p
-                  className={
-                    BASE_FONT_STYLE +
-                    (category == 2 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                  }>
-                  Starlet
-                </p>
-              </button>
-              <button onClick={() => selectCategory(3)}>
-                <p
-                  className={
-                    BASE_FONT_STYLE +
-                    (category == 3 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                  }>
-                  Computools
-                </p>
-              </button>
-              <button onClick={() => selectCategory(4)}>
-                <p
-                  className={
-                    BASE_FONT_STYLE +
-                    (category == 4 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                  }>
-                  Education
-                </p>
-              </button>
-            </div>
-          </div>
 
-          <div className='flex flex-col w-full'>
-            <div className='flex flex-row'>
-              <p className='text-dark-white text-2xl font-medium'>
-                {categoryData[category].title}
-              </p>
-              <p className='text-purple text-2xl font-medium ml-3'>
-                {categoryData[category].place}
-              </p>
-            </div>
-
-            <p className='text-dark-white text-xl pt-3'>
-              {`${categoryData[category].year}, ${categoryData[category].country}`}
-            </p>
-
-            <p className='text-dark-white text-xl pt-3'>
-              {categoryData[category].desc}
-            </p>
-
-            {categoryData[category].resposo.map((item, idx) => {
-              return (
+          <div className='flex flex-row gap-x-5'>
+            <div className='flex flex-row gap-x-5 h-[300px] ps-28 w-3/6 max-xl:ps-0'>
+              <div className='h-auto w-0.5 bg-dark-white'>
                 <div
-                  key={idx}
-                  className='flex flex-row mt-3 gap-x-5'>
-                  <svg
-                    width='15'
-                    height='28'
-                    viewBox='0 0 15 28'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'>
-                    <g id='icon'>
-                      <path
-                        id='&#62;'
-                        d='M11.7443 15.3807L3 19.4205V17.1513L9.21307 14.4858L9.14276 14.6072V14.3132L9.21307 14.4347L3 11.7692V9.5L11.7443 13.5398V15.3807Z'
-                        fill='#4EB99D'
-                      />
-                    </g>
-                  </svg>
+                  className={
+                    'h-16 w-1 bg-purple relative ' + getSliderPosition(category)
+                  }></div>
+              </div>
+              <div className='flex flex-col pt-4'>
+                <button onClick={() => selectCategory(0)}>
+                  <p
+                    className={
+                      BASE_FONT_STYLE +
+                      (category == 0 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                    }>
+                    Cuemill
+                  </p>
+                </button>
+                <button onClick={() => selectCategory(1)}>
+                  <p
+                    className={
+                      BASE_FONT_STYLE +
+                      (category == 1 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                    }>
+                    Uplift Prayer
+                  </p>
+                </button>
+                <button onClick={() => selectCategory(2)}>
+                  <p
+                    className={
+                      BASE_FONT_STYLE +
+                      (category == 2 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                    }>
+                    Starlet
+                  </p>
+                </button>
+                <button onClick={() => selectCategory(3)}>
+                  <p
+                    className={
+                      BASE_FONT_STYLE +
+                      (category == 3 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                    }>
+                    Computools
+                  </p>
+                </button>
+                <button onClick={() => selectCategory(4)}>
+                  <p
+                    className={
+                      BASE_FONT_STYLE +
+                      (category == 4 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                    }>
+                    Education
+                  </p>
+                </button>
+              </div>
+            </div>
 
-                  <p className='text-dark-white text-lg'>{item}</p>
-                </div>
-              );
-            })}
+            <div className='flex flex-col w-full'>
+              <div className='flex flex-wrap'>
+                <p className='text-dark-white text-2xl font-medium max-lg:text-lg'>
+                  {categoryData[category].title}
+                </p>
+                <p className='text-purple text-2xl font-medium ml-3 max-lg:text-lg'>
+                  {categoryData[category].place}
+                </p>
+              </div>
+
+              <p className='text-dark-white text-xl pt-3 max-lg:text-lg'>
+                {`${categoryData[category].year}, ${categoryData[category].country}`}
+              </p>
+
+              <p className='text-dark-white text-xl pt-3 max-lg:text-lg'>
+                {categoryData[category].desc}
+              </p>
+
+              {categoryData[category].resposo.map((item, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    className='flex flex-row mt-3 gap-x-5'>
+                    <svg
+                      className='shrink-0'
+                      width='15'
+                      height='28'
+                      viewBox='0 0 15 28'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'>
+                      <g id='icon'>
+                        <path
+                          id='&#62;'
+                          d='M11.7443 15.3807L3 19.4205V17.1513L9.21307 14.4858L9.14276 14.6072V14.3132L9.21307 14.4347L3 11.7692V9.5L11.7443 13.5398V15.3807Z'
+                          fill='#4EB99D'
+                        />
+                      </g>
+                    </svg>
+
+                    <p className='text-dark-white text-lg'>{item}</p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -206,16 +210,16 @@ export const HomeExperience = () => {
         return '';
         break;
       case 1:
-        return 'mt-16';
+        return 'inset-y-[60px]';
         break;
       case 2:
-        return 'mt-40';
+        return 'inset-y-[120px]';
         break;
       case 3:
-        return 'mt-56';
+        return 'inset-y-[180px]';
         break;
       case 4:
-        return 'mt-64';
+        return 'inset-y-[240px]';
         break;
       default:
         return '';
