@@ -1,7 +1,44 @@
+'use client';
+
+import { useState } from 'react';
+
 const SkillBubbleItem = ({ text }: { text: string }) => {
   return (
     <div className='flex rounded-full bg-skill-bubble-back mx-1 my-2'>
       <p className='text-base px-4 py-1 text-white'>{text}</p>
+    </div>
+  );
+};
+
+const CarouselItem = ({ data }: { data: PortfolioData }) => {
+  return (
+    <div className='hidden duration-200 ease-linear'>
+      <div className='flex flex-row gap-x-16'>
+        <div className='flex flex-col shrink-0'>
+          <img
+            src={data.image}
+            className='w-80 h-96 aspect-auto shrink-0'
+            alt='Picture of the port'
+          />
+        </div>
+
+        <div className='flex flex-col gap-y-5'>
+          <h1 className='text-purple text-2xl font-medium'>{data.title}</h1>
+          <h2 className='text-dark-white text-xl font-medium'>{data.tech}</h2>
+          <p className='text-dark-white text-base font-normal'>{data.desc}</p>
+
+          <div className='flex flex-wrap'>
+            {data.skills.map((item, idx) => {
+              return (
+                <SkillBubbleItem
+                  text={item}
+                  key={idx}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -90,6 +127,18 @@ export const HomePortfolio = () => {
     },
   ];
 
+  let [current, setCurrent] = useState(0);
+
+  let previousSlide = () => {
+    if (current === 0) setCurrent(data.length - 1);
+    else setCurrent(current - 1);
+  };
+
+  let nextSlide = () => {
+    if (current === data.length - 1) setCurrent(0);
+    else setCurrent(current + 1);
+  };
+
   return (
     <section className='grid pt-72'>
       <div className='w-9/12 justify-self-center max-xl:w-11/12'>
@@ -97,67 +146,57 @@ export const HomePortfolio = () => {
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10'>
             Portfolio
           </h2>
-          <div className='flex flex-row gap-x-16'>
-            <div className='flex flex-col shrink-0'>
-              <img
-                src='/port_uplift.png'
-                className='w-80 h-96 aspect-auto shrink-0'
-                alt='Picture of the port'
-              />
-              <div className='flex flex-row justify-center gap-x-5 mt-5'>
-                <button>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='40'
-                    height='40'
-                    viewBox='0 0 40 40'
-                    fill='none'>
-                    <path
-                      d='M11.25 26.25L5 20M5 20L11.25 13.75M5 20H35'
-                      stroke='#E0E3ED'
-                      stroke-width='2'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
+          <div className='flex flex-col'>
+            <div
+              id='controls-carousel'
+              className='relative w-full'
+              data-carousel='static'>
+              <div className='relative h-56 overflow-hidden rounded-lg md:h-96'>
+                {data.map((item, idx) => {
+                  return (
+                    <CarouselItem
+                      data={item}
+                      key={idx}
+                      data-carousel-item={idx == 0 ? 'active' : ''}
                     />
-                  </svg>
-                </button>
-                <button>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='40'
-                    height='41'
-                    viewBox='0 0 40 41'
-                    fill='none'>
-                    <path
-                      d='M28.75 26.8452L35 20.5952M35 20.5952L28.75 14.3452M35 20.5952H5'
-                      stroke='#E0E3ED'
-                      stroke-width='2'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                    />
-                  </svg>
-                </button>
+                  );
+                })}
               </div>
             </div>
 
-            <div className='flex flex-col gap-y-5'>
-              <h1 className='text-purple text-2xl font-medium'>
-                Uplift Prayer
-              </h1>
-              <h2 className='text-dark-white text-xl font-medium'>
-                iOS / Android / NodeJS
-              </h2>
-              <p className='text-dark-white text-base font-normal'>
-                As a mobile developer for a crypto app, I created and maintained
-                secure applications for users to manage their cryptocurrency
-                holdings and conduct transactions. I integrated blockchain
-                technology with mobile applications, ensuring user data
-                protection and preventing unauthorized access.
-              </p>
-
-              <div className='flex flex-wrap'>
-                <SkillBubbleItem text='Java' />
-              </div>
+            <div className='flex flex-row justify-center gap-x-5 mt-8'>
+              <button data-carousel-prev>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='40'
+                  height='40'
+                  viewBox='0 0 40 40'
+                  fill='none'>
+                  <path
+                    d='M11.25 26.25L5 20M5 20L11.25 13.75M5 20H35'
+                    stroke='#E0E3ED'
+                    stroke-width='2'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                </svg>
+              </button>
+              <button data-carousel-next>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='40'
+                  height='41'
+                  viewBox='0 0 40 41'
+                  fill='none'>
+                  <path
+                    d='M28.75 26.8452L35 20.5952M35 20.5952L28.75 14.3452M35 20.5952H5'
+                    stroke='#E0E3ED'
+                    stroke-width='2'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
