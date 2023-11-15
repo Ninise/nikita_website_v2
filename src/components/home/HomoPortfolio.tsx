@@ -5,7 +5,7 @@ import { useState } from 'react';
 const SkillBubbleItem = ({ text }: { text: string }) => {
   return (
     <div className='flex rounded-full bg-skill-bubble-back mx-1 my-2'>
-      <p className='text-base px-4 py-1 text-white'>{text}</p>
+      <p className='text-base px-4 py-1 text-white max-xl:text-sm'>{text}</p>
     </div>
   );
 };
@@ -16,15 +16,21 @@ const CarouselItem = ({ data }: { data: PortfolioData }) => {
       <div className='flex flex-col shrink-0'>
         <img
           src={data.image}
-          className='w-auto h-auto max-h-[400px] max-w-[500px] aspect-auto shrink-0'
+          className='w-auto h-auto max-h-[400px] max-w-[500px] aspect-auto shrink-0 max-xl:max-w-[250px] max-xl:max-h-[250px]'
           alt='Picture of the port'
         />
       </div>
 
       <div className='flex flex-col gap-y-5'>
-        <h1 className='text-purple text-2xl font-medium'>{data.title}</h1>
-        <h2 className='text-dark-white text-xl font-medium'>{data.tech}</h2>
-        <p className='text-dark-white text-base font-normal'>{data.desc}</p>
+        <h1 className='text-purple text-2xl font-medium max-xl:text-xl'>
+          {data.title}
+        </h1>
+        <h2 className='text-dark-white text-xl font-medium max-xl:text-lg'>
+          {data.tech}
+        </h2>
+        <p className='text-dark-white text-base font-normal max-xl:text-sm'>
+          {data.desc}
+        </p>
 
         <div className='flex flex-wrap'>
           {data.skills.map((item, idx) => {
@@ -141,15 +147,15 @@ export const HomePortfolio = () => {
     <section className='grid pt-72'>
       <div className='w-9/12 justify-self-center max-xl:w-11/12'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
-          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10'>
+          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-16'>
             Portfolio
           </h2>
           <div className='flex flex-col w-full'>
-            <div className='flex h-96 carousel-container'>
+            <div className='flex h-96 carousel-container max-xl:h-80'>
               <CarouselItem data={data[current]} />
             </div>
 
-            <div className='flex flex-row justify-start gap-x-5 mt-8 ms-32'>
+            <div className='flex flex-row justify-start gap-x-5 mt-8 ms-32 max-xl:ms-16'>
               <button onClick={previousSlide}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
