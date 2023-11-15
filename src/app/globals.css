@@ -96,3 +96,18 @@ body {
     transform: translateX(-100%);
   }
 }
+
+/* Carousel for portfolio */
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease; /* Use transition for a smooth fade effect */
+}
+
+.carousel-item {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Use transition for a smooth fade effect */
+}
+
+.carousel-item.active {
+  opacity: 1;
+}

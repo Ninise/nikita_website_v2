@@ -12,31 +12,29 @@ const SkillBubbleItem = ({ text }: { text: string }) => {
 
 const CarouselItem = ({ data }: { data: PortfolioData }) => {
   return (
-    <div className='hidden duration-200 ease-linear'>
-      <div className='flex flex-row gap-x-16'>
-        <div className='flex flex-col shrink-0'>
-          <img
-            src={data.image}
-            className='w-80 h-96 aspect-auto shrink-0'
-            alt='Picture of the port'
-          />
-        </div>
+    <div className='flex flex-row gap-x-16'>
+      <div className='flex flex-col shrink-0'>
+        <img
+          src={data.image}
+          className='w-auto h-auto max-h-[400px] max-w-[500px] aspect-auto shrink-0'
+          alt='Picture of the port'
+        />
+      </div>
 
-        <div className='flex flex-col gap-y-5'>
-          <h1 className='text-purple text-2xl font-medium'>{data.title}</h1>
-          <h2 className='text-dark-white text-xl font-medium'>{data.tech}</h2>
-          <p className='text-dark-white text-base font-normal'>{data.desc}</p>
+      <div className='flex flex-col gap-y-5'>
+        <h1 className='text-purple text-2xl font-medium'>{data.title}</h1>
+        <h2 className='text-dark-white text-xl font-medium'>{data.tech}</h2>
+        <p className='text-dark-white text-base font-normal'>{data.desc}</p>
 
-          <div className='flex flex-wrap'>
-            {data.skills.map((item, idx) => {
-              return (
-                <SkillBubbleItem
-                  text={item}
-                  key={idx}
-                />
-              );
-            })}
-          </div>
+        <div className='flex flex-wrap'>
+          {data.skills.map((item, idx) => {
+            return (
+              <SkillBubbleItem
+                text={item}
+                key={idx}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
@@ -115,7 +113,7 @@ export const HomePortfolio = () => {
       title: 'Crypton WEB',
       tech: 'React / Redux',
       desc: 'Web crypto wallet built on ETH Blockchain',
-      image: '/port_crypto_mob.png',
+      image: '/port_crypto_site.png',
       skills: ['Javascript', 'React', 'Redux', 'Solidity'],
     },
     {
@@ -146,26 +144,13 @@ export const HomePortfolio = () => {
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10'>
             Portfolio
           </h2>
-          <div className='flex flex-col'>
-            <div
-              id='controls-carousel'
-              className='relative w-full'
-              data-carousel='static'>
-              <div className='relative h-56 overflow-hidden rounded-lg md:h-96'>
-                {data.map((item, idx) => {
-                  return (
-                    <CarouselItem
-                      data={item}
-                      key={idx}
-                      data-carousel-item={idx == 0 ? 'active' : ''}
-                    />
-                  );
-                })}
-              </div>
+          <div className='flex flex-col w-full'>
+            <div className='flex h-96 carousel-container'>
+              <CarouselItem data={data[current]} />
             </div>
 
-            <div className='flex flex-row justify-center gap-x-5 mt-8'>
-              <button data-carousel-prev>
+            <div className='flex flex-row justify-start gap-x-5 mt-8 ms-32'>
+              <button onClick={previousSlide}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='40'
@@ -175,13 +160,13 @@ export const HomePortfolio = () => {
                   <path
                     d='M11.25 26.25L5 20M5 20L11.25 13.75M5 20H35'
                     stroke='#E0E3ED'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                 </svg>
               </button>
-              <button data-carousel-next>
+              <button onClick={nextSlide}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='40'
@@ -191,9 +176,9 @@ export const HomePortfolio = () => {
                   <path
                     d='M28.75 26.8452L35 20.5952M35 20.5952L28.75 14.3452M35 20.5952H5'
                     stroke='#E0E3ED'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                 </svg>
               </button>
