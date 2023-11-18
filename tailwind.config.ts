@@ -26,6 +26,8 @@ const config: Config = {
       'bermuda': '#78dcca',
 
       'menu-button': '#E0E3ED',
+      'menu-back': '#101119',
+
       'dark-blue': '#161822',
       'green': '#4EB99D',
       'scroll-text-back': '#7568C833',
@@ -34,6 +36,8 @@ const config: Config = {
       'purple': '#7568C8',
       'orange': '#F17A59',
       'dark-white': '#E0E3ED'
+
+      
       
     },
     letterSpacing: {
