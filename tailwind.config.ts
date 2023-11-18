@@ -27,6 +27,7 @@ const config: Config = {
 
       'menu-button': '#E0E3ED',
       'menu-back': '#101119',
+      'menu-back-button': '#292B37',
 
       'dark-blue': '#161822',
       'green': '#4EB99D',

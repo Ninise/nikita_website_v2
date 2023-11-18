@@ -111,3 +111,35 @@ body {
 .carousel-item.active {
   opacity: 1;
 }
+
+
+:root {
+  --width: 300px;
+  --height: 500px;
+  --x-speed: 23s;
+  --y-speed: 7s;
+  --transition-speed: 2.2s;
+}
+
+.el { 
+  width: var(--width);
+  height: var(--height);
+}
+
+.x {
+  animation: x var(--x-speed) linear infinite alternate;
+}
+.y {
+  animation: y var(--y-speed) linear infinite alternate;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100svh - (300px)));
+  }
+}
+@keyframes y {
+  100% {
+    transform: translateY(calc(100svh - (300px)));
+  }
+}

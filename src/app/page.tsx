@@ -43,7 +43,7 @@ export default function Home() {
         <HomeSkills />
         <HomeExperience />
         <HomePortfolio />
-        <HomeFooter />
+        <HomeFooter isFooter={true} />
       </main>
     </div>
   );
