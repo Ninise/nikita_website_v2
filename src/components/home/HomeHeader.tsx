@@ -5,17 +5,23 @@ type HomeHeaderProps<T> = {
 };
 
 export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
+  const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12';
+
   return (
     <section>
       <nav className='fixed top-0 right-0'>
         <div className='items-center justify-between mx-auto p-24 max-xl:px-8'>
           <button
-            className='content-center px-5 py-2 bg-menu-button text-dark-blue hover:text-menu-button hover:bg-dark-blue hover:fill-white fill-dark-blue rounded-lg'
+            className={
+              'content-center px-5 py-2 bg-menu-button text-dark-blue hover:text-menu-button hover:bg-dark-blue hover:fill-white fill-dark-blue rounded-lg ' +
+              MOBILE_BTN
+            }
             onClick={() => {
               fun();
             }}>
             <div className='inline-flex items-center space-x-4'>
               <svg
+                className='max-xl:h-6 max-sm:ms-2'
                 width='22'
                 height='18'
                 viewBox='0 0 24 18'
@@ -40,7 +46,9 @@ export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
                 />
               </svg>
 
-              <p className='text-lg  font-medium'>MENU</p>
+              <p className='text-lg font-medium max-xl:text-base max-sm:collapse'>
+                MENU
+              </p>
             </div>
           </button>
         </div>

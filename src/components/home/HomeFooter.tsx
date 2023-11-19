@@ -1,12 +1,12 @@
 export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
   const TYPE_FOOTER: string =
-    'flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0';
+    'flex max-sm:flex-col flex-row w-screen px-96 max-xl:px-52 max-sm:px-0 max-sm:w-[300px] justify-between justify-self-center space-x-36 max-xl:space-x-0';
   const TYPE_MENU: string =
     'flex flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0 max-sm:flex-col';
 
   return (
-    <section className='grid pt-72'>
-      <div className='w-9/12 justify-self-center max-xl:w-11/12'>
+    <section className='grid pt-72 max-sm:pt-30'>
+      <div className='justify-self-center'>
         <div className='flex flex-col gap-y-8'>
           <div className={isFooter ? TYPE_FOOTER : TYPE_MENU}>
             <h2
@@ -16,13 +16,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               }>
               Don’t be shy, <br /> make the first move.
             </h2>
-            <div
-              className={
-                '' +
-                (isFooter
-                  ? ''
-                  : 'flex flex-row justify-between w-full px-12 max-sm:px-0')
-              }>
+            <div className='flex flex-row justify-between w-full px-12 max-sm:px-0'>
               <div
                 className={
                   'flex flex-col gap-y-8 ' +
@@ -83,13 +77,13 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
             <div className='flex flex-row justify-center gap-x-16 mt-12'>
               <a
                 href='privacy'
-                className='text-dark-white'>
+                className='text-dark-white max-sm:text-xs'>
                 PRIVACY POLICY
               </a>
 
               <a
                 href='privacy'
-                className='text-dark-white'>
+                className='text-dark-white max-sm:text-xs'>
                 COOKIES
               </a>
             </div>

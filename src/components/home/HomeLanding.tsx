@@ -1,10 +1,13 @@
 export const HomeLanding = () => {
+  const TEXT_STYLE =
+    'text-8xl font-semibold tracking-widest max-xl:text-6xl max-sm:text-3xl';
+
   return (
-    <section className='grid pt-32'>
-      <div className='flex-col justify-self-center space-y-8'>
-        <div className='flex items-center justify-center justify-between space-x-16'>
+    <section className='pt-32 self-center'>
+      <div className='flex flex-col space-y-8'>
+        <div className='flex items-center justify-center justify-between space-x-16 max-sm:space-x-0 max-sm:justify-around'>
           <svg
-            className='max-xl:w-28'
+            className='max-xl:w-28 max-sm:w-14'
             xmlns='http://www.w3.org/2000/svg'
             width='157'
             height='98'
@@ -17,12 +20,10 @@ export const HomeLanding = () => {
             />
           </svg>
 
-          <p className='text-8xl font-semibold tracking-widest max-xl:text-6xl'>
-            mobile
-          </p>
+          <p className={TEXT_STYLE}>mobile</p>
 
           <svg
-            className='max-xl:w-20'
+            className='max-xl:w-20 max-sm:w-11'
             xmlns='http://www.w3.org/2000/svg'
             width='120'
             height='74'
@@ -37,12 +38,10 @@ export const HomeLanding = () => {
         </div>
 
         <div className='flex items-center justify-between'>
-          <p className='text-8xl font-semibold tracking-widest max-xl:text-6xl'>
-            backend
-          </p>
+          <p className={TEXT_STYLE}>backend</p>
 
           <svg
-            className='mr-20 max-xl:h-16'
+            className='mr-20 max-xl:h-16 max-sm:h-10 max-sm:mr-1'
             xmlns='http://www.w3.org/2000/svg'
             width='38'
             height='102'
@@ -55,7 +54,7 @@ export const HomeLanding = () => {
           </svg>
 
           <svg
-            className='mx-7 max-xl:w-11'
+            className='mx-7 max-xl:w-11 max-sm:w-7'
             xmlns='http://www.w3.org/2000/svg'
             width='59'
             height='22'
@@ -68,10 +67,10 @@ export const HomeLanding = () => {
           </svg>
         </div>
 
-        <div className='flex items-center justify-between'>
-          <div className='flex-col space-y-3'>
+        <div className='flex items-center justify-between max-sm:gap-4'>
+          <div className='flex-col space-y-3 max-sm:space-y-1'>
             <svg
-              className='max-xl:w-12'
+              className='max-xl:w-12 max-sm:w-7'
               xmlns='http://www.w3.org/2000/svg'
               width='76'
               height='29'
@@ -83,7 +82,7 @@ export const HomeLanding = () => {
               />
             </svg>
             <svg
-              className='max-xl:w-12'
+              className='max-xl:w-12 max-sm:w-7'
               xmlns='http://www.w3.org/2000/svg'
               width='80'
               height='11'
@@ -98,7 +97,7 @@ export const HomeLanding = () => {
           </div>
 
           <svg
-            className='max-xl:w-12'
+            className='max-xl:w-12 max-sm:w-8'
             xmlns='http://www.w3.org/2000/svg'
             width='56'
             height='53'
@@ -110,14 +109,12 @@ export const HomeLanding = () => {
             />
           </svg>
 
-          <p className='text-8xl font-semibold tracking-widest max-xl:text-6xl'>
-            frontend
-          </p>
+          <p className={TEXT_STYLE}>frontend</p>
         </div>
 
         <div className='flex items-center justify-center justify-between'>
           <svg
-            className='max-xl:h-16'
+            className='max-xl:h-16 max-sm:h-10'
             xmlns='http://www.w3.org/2000/svg'
             width='38'
             height='102'
@@ -129,9 +126,7 @@ export const HomeLanding = () => {
             />
           </svg>
 
-          <p className='text-8xl font-semibold tracking-widest max-xl:text-6xl'>
-            developer
-          </p>
+          <p className={TEXT_STYLE}>developer</p>
         </div>
       </div>
     </section>

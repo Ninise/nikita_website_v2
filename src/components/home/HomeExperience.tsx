@@ -1,6 +1,65 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+const WorkPlaceItem = ({
+  item,
+  color,
+}: {
+  item: CategoryData;
+  color: string;
+}) => {
+  return (
+    <div className='flex flex-col w-full max-sm:mb-14'>
+      <div className='flex flex-wrap'>
+        <p className='text-dark-white text-2xl font-medium max-lg:text-lg max-sm:text-base'>
+          {item.title}
+        </p>
+        <p
+          className={
+            `text-${color} ` +
+            'text-2xl font-medium ml-3 max-lg:text-lg max-sm:text-base'
+          }>
+          {item.place}
+        </p>
+      </div>
+
+      <p className='text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
+        {`${item.year}, ${item.country}`}
+      </p>
+
+      <p className='text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
+        {item.desc}
+      </p>
+
+      {item.resposo.map((txt, idx) => {
+        return (
+          <div
+            key={idx}
+            className='flex flex-row mt-3 gap-x-5'>
+            <svg
+              className='shrink-0'
+              width='15'
+              height='28'
+              viewBox='0 0 15 28'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'>
+              <g id='icon'>
+                <path
+                  id='&#62;'
+                  d='M11.7443 15.3807L3 19.4205V17.1513L9.21307 14.4858L9.14276 14.6072V14.3132L9.21307 14.4347L3 11.7692V9.5L11.7443 13.5398V15.3807Z'
+                  fill='#4EB99D'
+                />
+              </g>
+            </svg>
+
+            <p className='text-dark-white text-lg max-sm:text-xs'>{txt}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 type CategoryData = {
   title: string;
@@ -12,9 +71,12 @@ type CategoryData = {
 };
 
 export const HomeExperience = () => {
-  const BASE_FONT_STYLE: string = 'text-2xl text-start pb-7 max-lg:text-lg ';
+  const BASE_FONT_STYLE: string =
+    'text-2xl text-start pb-7 max-lg:text-lg max-sm:text-base ';
   const CATEGORY_SELECTED: string = 'text-purple';
   const CATEGORY_DEFAULT: string = 'text-dark-white';
+
+  const colors = ['purple', 'orange', 'green'];
 
   const [category, setCategory] = useState(0);
 
@@ -89,116 +151,105 @@ export const HomeExperience = () => {
     },
   ];
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWindowWidth = () => {
+      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWindowWidth);
+    };
+  }, []);
+
   return (
-    <section className='grid pt-72'>
-      <div className='w-9/12 justify-self-center max-xl:w-11/12'>
+    <section className='grid pt-72 max-sm:pt-32'>
+      <div className='justify-self-center'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-8 max-xl:space-x-0'>
-          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10'>
+          <h2 className='min-w-max text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
             Experience
           </h2>
 
-          <div className='flex flex-row gap-x-5'>
-            <div className='flex flex-row gap-x-5 h-[300px] ps-28 w-3/6 max-xl:ps-0'>
-              <div className='h-auto w-0.5 bg-dark-white'>
-                <div
-                  className={
-                    'h-16 w-1 bg-purple relative ' + getSliderPosition(category)
-                  }></div>
-              </div>
-              <div className='flex flex-col pt-4'>
-                <button onClick={() => selectCategory(0)}>
-                  <p
-                    className={
-                      BASE_FONT_STYLE +
-                      (category == 0 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                    }>
-                    Cuemill
-                  </p>
-                </button>
-                <button onClick={() => selectCategory(1)}>
-                  <p
-                    className={
-                      BASE_FONT_STYLE +
-                      (category == 1 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                    }>
-                    Uplift Prayer
-                  </p>
-                </button>
-                <button onClick={() => selectCategory(2)}>
-                  <p
-                    className={
-                      BASE_FONT_STYLE +
-                      (category == 2 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                    }>
-                    Starlet
-                  </p>
-                </button>
-                <button onClick={() => selectCategory(3)}>
-                  <p
-                    className={
-                      BASE_FONT_STYLE +
-                      (category == 3 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                    }>
-                    Computools
-                  </p>
-                </button>
-                <button onClick={() => selectCategory(4)}>
-                  <p
-                    className={
-                      BASE_FONT_STYLE +
-                      (category == 4 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
-                    }>
-                    Education
-                  </p>
-                </button>
-              </div>
-            </div>
-
-            <div className='flex flex-col w-full'>
-              <div className='flex flex-wrap'>
-                <p className='text-dark-white text-2xl font-medium max-lg:text-lg'>
-                  {categoryData[category].title}
-                </p>
-                <p className='text-purple text-2xl font-medium ml-3 max-lg:text-lg'>
-                  {categoryData[category].place}
-                </p>
-              </div>
-
-              <p className='text-dark-white text-xl pt-3 max-lg:text-lg'>
-                {`${categoryData[category].year}, ${categoryData[category].country}`}
-              </p>
-
-              <p className='text-dark-white text-xl pt-3 max-lg:text-lg'>
-                {categoryData[category].desc}
-              </p>
-
-              {categoryData[category].resposo.map((item, idx) => {
+          {isMobile ? (
+            <div className='flex flex-col collapse max-sm:visible max-sm:w-[350px]'>
+              {categoryData.map((item, i) => {
                 return (
-                  <div
-                    key={idx}
-                    className='flex flex-row mt-3 gap-x-5'>
-                    <svg
-                      className='shrink-0'
-                      width='15'
-                      height='28'
-                      viewBox='0 0 15 28'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'>
-                      <g id='icon'>
-                        <path
-                          id='&#62;'
-                          d='M11.7443 15.3807L3 19.4205V17.1513L9.21307 14.4858L9.14276 14.6072V14.3132L9.21307 14.4347L3 11.7692V9.5L11.7443 13.5398V15.3807Z'
-                          fill='#4EB99D'
-                        />
-                      </g>
-                    </svg>
-
-                    <p className='text-dark-white text-lg'>{item}</p>
-                  </div>
+                  <WorkPlaceItem
+                    item={item}
+                    key={i}
+                    color={colors[Math.floor(Math.random() * colors.length)]}
+                  />
                 );
               })}
             </div>
-          </div>
+          ) : (
+            <div className='flex flex-row gap-x-5 max-sm:collapse'>
+              <div className='flex flex-row gap-x-5 h-[300px] ps-28 w-3/6 max-xl:ps-0'>
+                <div className='h-auto w-0.5 bg-dark-white'>
+                  <div
+                    className={
+                      'h-16 w-1 bg-purple relative ' +
+                      getSliderPosition(category)
+                    }></div>
+                </div>
+                <div className='flex flex-col pt-4'>
+                  <button onClick={() => selectCategory(0)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 0 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
+                      Cuemill
+                    </p>
+                  </button>
+                  <button onClick={() => selectCategory(1)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 1 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
+                      Uplift Prayer
+                    </p>
+                  </button>
+                  <button onClick={() => selectCategory(2)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 2 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
+                      Starlet
+                    </p>
+                  </button>
+                  <button onClick={() => selectCategory(3)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 3 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
+                      Computools
+                    </p>
+                  </button>
+                  <button onClick={() => selectCategory(4)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 4 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
+                      Education
+                    </p>
+                  </button>
+                </div>
+              </div>
+              <WorkPlaceItem
+                item={categoryData[category]}
+                color='purple'
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

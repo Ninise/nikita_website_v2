@@ -21,8 +21,11 @@ export default function Home() {
   const [isShowMenu, setShowMenu] = useState(false);
 
   return (
-    <div>
-      {/* <div className='bg'></div> */}
+    <div
+      style={{
+        backgroundImage: `url('../public/bg_noice.png')})`,
+      }}>
+      {/* {<div className='bg'></div>} */}
       <HomeHeader
         fun={() => {
           showMenu(!isShowMenu);
@@ -37,7 +40,7 @@ export default function Home() {
       ) : (
         <div></div>
       )}
-      <main className='flex min-h-screen flex-col justify-between p-24 max-xl:p-28'>
+      <main className='flex flex-col p-24 items-center max-xl:p-28 w-full overflow-x-hidden'>
         <HomeLanding />
         <HomeAbout />
         <HomeSkills />

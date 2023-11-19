@@ -1,27 +1,29 @@
 const HomeAboutItem = ({ text }: { text: string }) => {
   return (
     <div className='flex flex-row space-x-5'>
-      <p className='text-green text-lg'>&lt;</p>
-      <p className='text-menu-button text-lg'>{text}</p>
+      <p className='text-green text-lg max-sm:text-sm'>&lt;</p>
+      <p className='text-menu-button text-lg max-sm:text-sm'>{text}</p>
     </div>
   );
 };
 
 export const HomeAbout = () => {
   return (
-    <section className='grid pt-72'>
-      <div className='w-9/12 justify-self-center max-xl:w-11/12'>
+    <section className='grid pt-72 max-sm:w-[350px]'>
+      <div className='justify-self-center max-sm:items-start'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
-          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10'>
+          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
             About Me
           </h2>
           <div className='flex flex-col'>
-            <h2 className='text-green text-2xl font-bold'>Hi, I’m Nikita</h2>
-            <h2 className='text-green text-2xl font-bold mt-1'>
+            <h2 className='text-green text-2xl font-bold max-sm:text-lg'>
+              Hi, I’m Nikita
+            </h2>
+            <h2 className='text-green text-2xl font-bold mt-1 max-sm:text-lg'>
               Software Developer, based in Toronto
             </h2>
 
-            <div className='flex scroll-container bg-scroll-text-back h-8 my-6'>
+            <div className='flex scroll-container bg-scroll-text-back h-8 my-6 max-sm:w-[340px]'>
               <div className='flex scroll-text items-center'>
                 <p className='justify-self-center truncate'>
                   / 7 years / 31 project / 24/7 support / 7 years / 31 project /

@@ -1,25 +1,46 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const SkillBubbleItem = ({ text }: { text: string }) => {
   return (
     <div className='flex rounded-full bg-skill-bubble-back mx-1 my-2'>
-      <p className='text-base px-4 py-1 text-white max-xl:text-sm'>{text}</p>
+      <p className='text-base px-4 py-1 text-white max-xl:text-sm max-sm:text-xs'>
+        {text}
+      </p>
     </div>
   );
 };
 
 const CarouselItem = ({ data }: { data: PortfolioData }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWindowWidth = () => {
+      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWindowWidth);
+    };
+  }, []);
+
   return (
-    <div className='flex flex-row gap-x-16'>
-      <div className='flex flex-col shrink-0'>
-        <img
-          src={data.image}
-          className='w-auto h-auto max-h-[400px] max-w-[500px] aspect-auto shrink-0 max-xl:max-w-[250px] max-xl:max-h-[250px]'
-          alt='Picture of the port'
-        />
-      </div>
+    <div className='flex flex-row gap-x-16 max-sm:flex-col'>
+      {isMobile ? (
+        <div></div>
+      ) : (
+        <div className='flex flex-col shrink-0'>
+          <img
+            src={data.image}
+            className='w-auto h-auto max-h-[400px] max-w-[500px] aspect-auto shrink-0 max-xl:max-w-[250px] max-xl:max-h-[250px]'
+            alt='Picture of the port'
+          />
+        </div>
+      )}
 
       <div className='flex flex-col gap-y-5'>
         <h1 className='text-purple text-2xl font-medium max-xl:text-xl'>
@@ -42,6 +63,18 @@ const CarouselItem = ({ data }: { data: PortfolioData }) => {
             );
           })}
         </div>
+
+        {isMobile ? (
+          <div className='flex flex-col shrink-0'>
+            <img
+              src={data.image}
+              className='w-auto h-auto max-h-[400px] max-w-[500px] aspect-auto shrink-0 max-xl:max-w-[250px] max-xl:max-h-[250px] max-sm:max-w-[350px] max-sm:max-h-[350px]'
+              alt='Picture of the port'
+            />
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );
@@ -144,18 +177,18 @@ export const HomePortfolio = () => {
   };
 
   return (
-    <section className='grid pt-72'>
+    <section className='grid pt-72 max-sm:pt-32 max-sm:w-[350px]'>
       <div className='w-9/12 justify-self-center max-xl:w-11/12'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-16'>
             Portfolio
           </h2>
           <div className='flex flex-col w-full'>
-            <div className='flex h-96 carousel-container max-xl:h-80'>
+            <div className='flex h-96 carousel-container max-xl:h-80 max-sm:h-auto'>
               <CarouselItem data={data[current]} />
             </div>
 
-            <div className='flex flex-row justify-start gap-x-5 mt-8 ms-32 max-xl:ms-16'>
+            <div className='flex flex-row justify-start gap-x-5 mt-8 ms-32 max-xl:ms-16 max-sm:ms-0 self-center'>
               <button onClick={previousSlide}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
