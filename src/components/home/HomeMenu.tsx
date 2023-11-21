@@ -17,12 +17,12 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
       <div className='flex flex-col mt-52 z-50'>
         <button
           className={
-            'flex flew-row fixed top-24 right-24 items-center px-5 py-2 bg-menu-back-button text-dark-blue hover:text-menu-button hover:bg-dark-blue fill-dark-blue rounded-lg ' +
+            'flex flex-row fixed top-24 right-24 items-center px-4 py-2 bg-menu-back-button text-dark-blue hover:text-menu-button hover:bg-dark-blue fill-dark-blue rounded-lg ' +
             TABLET_BTN +
             MOBILE_BTN
           }
           onClick={() => fun()}>
-          <div className='flex flex-row items-center space-x-4 max-xl:space-x-2 max-sm:space-x-0'>
+          <div className='flex flex-row items-center space-x-2 max-xl:space-x-2 max-sm:space-x-0'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='28'
@@ -41,7 +41,7 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
             </p>
           </div>
         </button>
-        <div className='flex flex-row w-10/12 text-dark-white text-2xl text-medium self-center justify-between mt-18 align-center max-xl:text-xl max-sm:text-sm'>
+        <div className='flex flex-row w-4/6 text-dark-white text-2xl text-medium self-center justify-between mt-18 align-center max-xl:text-xl max-sm:text-sm'>
           <a
             className='hover:text-white duration-300'
             href='#'>

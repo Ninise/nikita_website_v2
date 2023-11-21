@@ -2,7 +2,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
   const TYPE_FOOTER: string =
     'flex max-sm:flex-col flex-row w-screen px-96 max-xl:px-52 max-sm:px-0 max-sm:w-[300px] justify-between justify-self-center space-x-36 max-xl:space-x-0';
   const TYPE_MENU: string =
-    'flex flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0 max-sm:flex-col';
+    'flex flex-row justify-between justify-self-center space-x-52 ms-10 max-xl:space-x-0 max-sm:flex-col';
 
   return (
     <section className='grid pt-72 max-sm:pt-30'>
@@ -16,7 +16,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               }>
               Don’t be shy, <br /> make the first move.
             </h2>
-            <div className='flex flex-row justify-between w-full px-12 max-sm:px-0'>
+            <div className='flex flex-row justify-between space-x-12 px-12 max-sm:px-0'>
               <div
                 className={
                   'flex flex-col gap-y-8 ' +
