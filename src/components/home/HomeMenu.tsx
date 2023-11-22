@@ -14,7 +14,7 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
     <div
       id='menu'
       className='fixed z-30 w-full h-full bg-menu-back justify-center items-top duration-700'>
-      <div className='flex flex-col mt-52 z-50'>
+      <div className='flex flex-col mt-52 z-50 px-[10%]'>
         <button
           className={
             'flex flex-row fixed top-24 right-24 items-center px-4 py-2 bg-menu-back-button text-dark-blue hover:text-menu-button hover:bg-dark-blue fill-dark-blue rounded-lg ' +
