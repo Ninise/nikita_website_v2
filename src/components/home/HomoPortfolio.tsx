@@ -148,20 +148,6 @@ export const HomePortfolio = () => {
       image: '/port_crypto_mob.png',
       skills: ['Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose', 'Solidity'],
     },
-    {
-      title: 'Crypton WEB',
-      tech: 'React / Redux',
-      desc: 'Web crypto wallet built on ETH Blockchain',
-      image: '/port_crypto_site.png',
-      skills: ['Javascript', 'React', 'Redux', 'Solidity'],
-    },
-    {
-      title: 'Web developer portfolio',
-      tech: 'JS / React',
-      desc: 'Cozy portfolio website for an aspiring web developer',
-      image: '/port_port_web.png',
-      skills: ['Javascript', 'React'],
-    },
   ];
 
   let [current, setCurrent] = useState(0);

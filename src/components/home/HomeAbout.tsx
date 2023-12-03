@@ -1,8 +1,10 @@
+import { Inter, Inconsolata, Lora } from 'next/font/google';
+
 const HomeAboutItem = ({ text }: { text: string }) => {
   return (
     <div className='flex flex-row space-x-5'>
       <p className='text-green text-lg max-sm:text-sm'>&lt;</p>
-      <p className='text-menu-button text-lg max-sm:text-sm'>{text}</p>
+      <p className={'text-menu-button text-lg max-sm:text-sm'}>{text}</p>
     </div>
   );
 };

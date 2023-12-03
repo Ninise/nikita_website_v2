@@ -5,7 +5,52 @@ export const HomeLanding = () => {
   return (
     <section className='pt-32 self-center'>
       <div className='flex flex-col space-y-8'>
-        <div className='flex items-center justify-center justify-between space-x-16 max-sm:space-x-0 max-sm:justify-around me-7 max-xl:me-1 max-sm:me-0'>
+        <div className='flex items-center justify-between max-sm:gap-4'>
+          <div className='flex-col space-y-3 max-sm:space-y-1'>
+            <svg
+              className='max-xl:w-12 max-sm:w-7'
+              xmlns='http://www.w3.org/2000/svg'
+              width='76'
+              height='29'
+              viewBox='0 0 76 29'
+              fill='none'>
+              <path
+                d='M24.5601 0.290001C28.0134 0.290001 31.0001 0.990002 33.5201 2.39C36.0401 3.79 38.2801 5.42334 40.2401 7.29C42.2467 9.15667 44.1601 10.79 45.9801 12.19C47.8467 13.59 49.8534 14.29 52.0001 14.29C54.7067 14.29 57.0634 13.2867 59.0701 11.28C61.1234 9.22667 63.0834 6.45 64.9501 2.95L75.9401 8.13C74.1667 11.8633 72.1601 15.2933 69.9201 18.42C67.7267 21.5 65.1367 23.9967 62.1501 25.91C59.1634 27.7767 55.5934 28.71 51.4401 28.71C48.1267 28.71 45.2101 28.01 42.6901 26.61C40.2167 25.21 37.9767 23.5767 35.9701 21.71C33.9634 19.8433 32.0034 18.21 30.0901 16.81C28.1767 15.41 26.1467 14.71 24.0001 14.71C21.2001 14.71 18.7967 15.7367 16.7901 17.79C14.7834 19.8433 12.8701 22.55 11.0501 25.91L0.0600586 20.87C1.83339 17.37 3.79339 14.0567 5.94006 10.93C8.13339 7.75667 10.7234 5.19 13.7101 3.23C16.7434 1.27 20.3601 0.290001 24.5601 0.290001Z'
+                fill='#4EB99D'
+              />
+            </svg>
+            <svg
+              className='max-xl:w-12 max-sm:w-7'
+              xmlns='http://www.w3.org/2000/svg'
+              width='80'
+              height='11'
+              viewBox='0 0 80 11'
+              fill='none'>
+              <path
+                d='M0 5.71H80'
+                stroke='#4EB99D'
+                strokeWidth='10'
+              />
+            </svg>
+          </div>
+
+          <p className={TEXT_STYLE}>software</p>
+
+          <svg
+            className='max-xl:w-12 max-sm:w-8'
+            xmlns='http://www.w3.org/2000/svg'
+            width='56'
+            height='53'
+            viewBox='0 0 56 53'
+            fill='none'>
+            <path
+              d='M20.956 0H34.164L32.5 20.124L51.064 12.324L55.12 24.804L35.464 29.432L48.62 44.772L38.064 52.416L27.56 35.256L17.056 52.416L6.5 44.772L19.656 29.432L0 24.804L4.056 12.324L22.62 20.124L20.956 0Z'
+              fill='#F17A59'
+            />
+          </svg>
+        </div>
+
+        <div className='flex items-center justify-center justify-between space-x-16 max-sm:space-x-0 max-sm:justify-around me-7 max-xl:me-1 max-sm:me-0 max-sm:h-[20px]'>
           <svg
             className='max-xl:w-28 max-sm:w-14'
             xmlns='http://www.w3.org/2000/svg'
@@ -65,51 +110,6 @@ export const HomeLanding = () => {
               fill='#F17A59'
             />
           </svg>
-        </div>
-
-        <div className='flex items-center justify-between max-sm:gap-4'>
-          <div className='flex-col space-y-3 max-sm:space-y-1'>
-            <svg
-              className='max-xl:w-12 max-sm:w-7'
-              xmlns='http://www.w3.org/2000/svg'
-              width='76'
-              height='29'
-              viewBox='0 0 76 29'
-              fill='none'>
-              <path
-                d='M24.5601 0.290001C28.0134 0.290001 31.0001 0.990002 33.5201 2.39C36.0401 3.79 38.2801 5.42334 40.2401 7.29C42.2467 9.15667 44.1601 10.79 45.9801 12.19C47.8467 13.59 49.8534 14.29 52.0001 14.29C54.7067 14.29 57.0634 13.2867 59.0701 11.28C61.1234 9.22667 63.0834 6.45 64.9501 2.95L75.9401 8.13C74.1667 11.8633 72.1601 15.2933 69.9201 18.42C67.7267 21.5 65.1367 23.9967 62.1501 25.91C59.1634 27.7767 55.5934 28.71 51.4401 28.71C48.1267 28.71 45.2101 28.01 42.6901 26.61C40.2167 25.21 37.9767 23.5767 35.9701 21.71C33.9634 19.8433 32.0034 18.21 30.0901 16.81C28.1767 15.41 26.1467 14.71 24.0001 14.71C21.2001 14.71 18.7967 15.7367 16.7901 17.79C14.7834 19.8433 12.8701 22.55 11.0501 25.91L0.0600586 20.87C1.83339 17.37 3.79339 14.0567 5.94006 10.93C8.13339 7.75667 10.7234 5.19 13.7101 3.23C16.7434 1.27 20.3601 0.290001 24.5601 0.290001Z'
-                fill='#4EB99D'
-              />
-            </svg>
-            <svg
-              className='max-xl:w-12 max-sm:w-7'
-              xmlns='http://www.w3.org/2000/svg'
-              width='80'
-              height='11'
-              viewBox='0 0 80 11'
-              fill='none'>
-              <path
-                d='M0 5.71H80'
-                stroke='#4EB99D'
-                strokeWidth='10'
-              />
-            </svg>
-          </div>
-
-          <svg
-            className='max-xl:w-12 max-sm:w-8'
-            xmlns='http://www.w3.org/2000/svg'
-            width='56'
-            height='53'
-            viewBox='0 0 56 53'
-            fill='none'>
-            <path
-              d='M20.956 0H34.164L32.5 20.124L51.064 12.324L55.12 24.804L35.464 29.432L48.62 44.772L38.064 52.416L27.56 35.256L17.056 52.416L6.5 44.772L19.656 29.432L0 24.804L4.056 12.324L22.62 20.124L20.956 0Z'
-              fill='#F17A59'
-            />
-          </svg>
-
-          <p className={TEXT_STYLE}>frontend</p>
         </div>
 
         <div className='flex items-center justify-center justify-between'>

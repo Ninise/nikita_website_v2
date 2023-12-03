@@ -5,7 +5,7 @@ type HomeHeaderProps<T> = {
 };
 
 export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
-  const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12';
+  const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12 max-sm:h-10';
 
   return (
     <section>
@@ -21,7 +21,7 @@ export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
             }}>
             <div className='inline-flex items-center space-x-4'>
               <svg
-                className='max-xl:h-6 max-sm:ms-2'
+                className='max-xl:h-6'
                 width='22'
                 height='18'
                 viewBox='0 0 24 18'
@@ -46,7 +46,7 @@ export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
                 />
               </svg>
 
-              <p className='text-lg font-medium max-xl:text-base max-sm:collapse'>
+              <p className='text-lg font-medium max-xl:text-base max-sm:hidden'>
                 MENU
               </p>
             </div>
