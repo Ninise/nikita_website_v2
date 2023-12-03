@@ -84,9 +84,9 @@ export const HomeExperience = () => {
 
   const categoryData: CategoryData[] = [
     {
-      title: 'Software Engineer',
+      title: 'iOS developer',
       place: '@Cuemill',
-      year: '2023 - Present',
+      year: '2023 - 2023',
       country: 'Canada (On-site)',
       desc: 'Proximity based social network, that transforms physical objects and interactions to digital by using NFC based technology.',
       resposo: [
@@ -97,7 +97,7 @@ export const HomeExperience = () => {
       ],
     },
     {
-      title: 'Software Engineer',
+      title: 'Mobile developer',
       place: '@Uplift Prayer',
       year: '2017 - 2023',
       country: 'USA (Remote)',
@@ -110,7 +110,7 @@ export const HomeExperience = () => {
       ],
     },
     {
-      title: 'Software Engineer, CEO',
+      title: 'Mobile developer, CEO',
       place: '@Starlet',
       year: '2017 - 2019',
       country: 'Ukraine',
@@ -126,7 +126,7 @@ export const HomeExperience = () => {
       title: 'Android developer',
       place: '@Computools',
       year: '2016 - 2017',
-      country: 'Canada',
+      country: 'Ukraine (On-site)',
       desc: 'An outsource company that provides a full development life-cycle in web/mobile development.',
       resposo: [
         'Worked as an Android developer;',
@@ -169,7 +169,7 @@ export const HomeExperience = () => {
   return (
     <section className='grid pt-72 max-sm:pt-32'>
       <div className='justify-self-center'>
-        <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-8 max-xl:space-x-0'>
+        <div className='flex flex-row justify-between justify-self-center space-x-8 max-xl:space-x-0 max-xl:flex-col'>
           <h2 className='min-w-max text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
             Experience
           </h2>
@@ -244,10 +244,12 @@ export const HomeExperience = () => {
                   </button>
                 </div>
               </div>
-              <WorkPlaceItem
-                item={categoryData[category]}
-                color='purple'
-              />
+              <div className='flex-grow'>
+                <WorkPlaceItem
+                  item={categoryData[category]}
+                  color='purple'
+                />
+              </div>
             </div>
           )}
         </div>

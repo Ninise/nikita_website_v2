@@ -33,11 +33,14 @@ const HomeSkillListItem = ({
 };
 
 export const HomeSkills = () => {
+  const MAIN_TABLET: string = 'max-xl:flex-col max-xl:space-x-0';
+
   return (
     <section className='grid pt-72 max-sm:pt-32 max-sm:w-[350px]'>
       <div className='justify-self-center'>
-        <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
-          <h2 className='min-w-max text-menu-button text-2xl max-sm:text-xl font-bold max-xl:pb-10'>
+        <div
+          className={`flex flex-row justify-between justify-self-center space-x-36 ${MAIN_TABLET}`}>
+          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
             Skills & Tools
           </h2>
           <div className='flex flex-col'>

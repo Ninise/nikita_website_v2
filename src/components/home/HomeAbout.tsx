@@ -23,7 +23,7 @@ export const HomeAbout = () => {
               Software Developer, based in Toronto
             </h2>
 
-            <div className='flex scroll-container bg-scroll-text-back h-8 my-6 max-sm:w-[340px]'>
+            <div className='flex scroll-container bg-scroll-text-back h-8 my-6 max-xl:w-[600px] max-sm:w-[340px]'>
               <div className='flex scroll-text items-center'>
                 <p className='justify-self-center truncate'>
                   / 7 years / 31 project / 24/7 support / 7 years / 31 project /

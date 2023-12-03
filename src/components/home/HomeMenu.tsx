@@ -41,7 +41,7 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
             </p>
           </div>
         </button>
-        <div className='flex flex-row w-4/6 text-dark-white text-2xl text-medium self-center justify-between mt-18 align-center max-xl:text-xl max-sm:text-sm'>
+        <div className='flex flex-row self-center mt-18 gap-40 max-xl:gap-20 max-sm:gap-5 text-dark-white text-2xl text-medium max-xl:text-xl max-sm:text-sm'>
           <a
             className='hover:text-white duration-300'
             href='#'>

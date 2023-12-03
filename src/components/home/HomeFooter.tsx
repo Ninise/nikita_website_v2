@@ -1,6 +1,6 @@
 export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
   const TYPE_FOOTER: string =
-    'flex max-sm:flex-col flex-row w-screen px-96 max-xl:px-52 max-sm:px-0 max-sm:w-[300px] justify-between justify-self-center space-x-36 max-xl:space-x-0';
+    'flex flex-row max-sm:w-[300px] justify-between justify-self-center space-x-36 max-xl:space-x-0 max-sm:flex-col';
   const TYPE_MENU: string =
     'flex flex-row justify-between px-[20%] space-x-52 max-xl:px-[0px] max-xl:space-x-0 max-sm:flex-col';
 
@@ -11,11 +11,13 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
           <h2
             className={
               'min-w-max text-green font-bold max-xl:pb-16 ' +
-              (isFooter ? 'text-2xl' : 'text-5xl max-2xl:text-3xl')
+              (isFooter
+                ? 'text-2xl max-xl:text-xl'
+                : 'text-5xl max-2xl:text-3xl max-xl:text-2xl')
             }>
             Don’t be shy, <br /> make the first move.
           </h2>
-          <div className='flex flex-row justify-between space-x-12 px-12 max-sm:px-0'>
+          <div className='flex flex-row justify-between space-x-12 px-12 max-xl:space-x-5 max-sm:px-0'>
             <div
               className={
                 'flex flex-col gap-y-8 ' +

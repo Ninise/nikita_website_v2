@@ -184,7 +184,7 @@ export const HomePortfolio = () => {
             Portfolio
           </h2>
           <div className='flex flex-col w-full'>
-            <div className='flex h-96 carousel-container max-xl:h-80 max-sm:h-auto'>
+            <div className='flex carousel-container h-auto'>
               <CarouselItem data={data[current]} />
             </div>
 
