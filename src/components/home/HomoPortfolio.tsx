@@ -177,18 +177,18 @@ export const HomePortfolio = () => {
   };
 
   return (
-    <section className='grid pt-72 max-sm:pt-32 max-sm:w-[350px]'>
+    <section className='container pt-72 max-sm:pt-32 max-sm:w-[350px]'>
       <div className='w-9/12 justify-self-center max-xl:w-11/12'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-16'>
             Portfolio
           </h2>
-          <div className='flex flex-col w-full'>
-            <div className='flex carousel-container h-auto'>
+          <div className='flex flex-col min-w-full'>
+            <div className='flex carousel-container h-[500px] max-xl:h-[450px] max-sm:h-auto'>
               <CarouselItem data={data[current]} />
             </div>
 
-            <div className='flex flex-row justify-start gap-x-5 mt-8 ms-32 max-xl:ms-16 max-sm:ms-0 self-center'>
+            <div className='flex flex-row justify-center justify-self-center gap-x-5 mt-8 ms-32 max-xl:ms-16 max-sm:ms-0 self-center'>
               <button onClick={previousSlide}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

@@ -36,7 +36,7 @@ export const HomeSkills = () => {
   const MAIN_TABLET: string = 'max-xl:flex-col max-xl:space-x-0';
 
   return (
-    <section className='grid pt-72 max-sm:pt-32 max-sm:w-[350px]'>
+    <section className='container pt-72 max-sm:pt-32 max-sm:w-[350px]'>
       <div className='justify-self-center'>
         <div
           className={`flex flex-row justify-between justify-self-center space-x-36 ${MAIN_TABLET}`}>

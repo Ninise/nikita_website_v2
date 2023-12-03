@@ -167,15 +167,15 @@ export const HomeExperience = () => {
   }, []);
 
   return (
-    <section className='grid pt-72 max-sm:pt-32'>
+    <section className='container pt-72 max-sm:w-[350px] max-sm:pt-32'>
       <div className='justify-self-center'>
-        <div className='flex flex-row justify-between justify-self-center space-x-8 max-xl:space-x-0 max-xl:flex-col'>
-          <h2 className='min-w-max text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
+        <div className='flex flex-row justify-start space-x-8 max-xl:space-x-0 max-xl:flex-col'>
+          <h2 className='text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
             Experience
           </h2>
 
           {isMobile ? (
-            <div className='flex flex-col collapse max-sm:visible max-sm:w-[350px]'>
+            <div className='flex flex-col collapse max-sm:visible'>
               {categoryData.map((item, i) => {
                 return (
                   <WorkPlaceItem
@@ -187,8 +187,8 @@ export const HomeExperience = () => {
               })}
             </div>
           ) : (
-            <div className='flex flex-row gap-x-5 max-sm:collapse'>
-              <div className='flex flex-row gap-x-5 h-[300px] ps-28 w-3/6 max-xl:ps-0'>
+            <div className='flex flex-row gap-x-20 max-sm:collapse'>
+              <div className='flex flex-row gap-x-5 h-[300px] ps-28 max-xl:ps-0'>
                 <div className='h-auto w-0.5 bg-dark-white'>
                   <div
                     className={
@@ -244,7 +244,7 @@ export const HomeExperience = () => {
                   </button>
                 </div>
               </div>
-              <div className='flex-grow'>
+              <div className='flex-1'>
                 <WorkPlaceItem
                   item={categoryData[category]}
                   color='purple'

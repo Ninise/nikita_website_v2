@@ -9,7 +9,7 @@ const HomeAboutItem = ({ text }: { text: string }) => {
 
 export const HomeAbout = () => {
   return (
-    <section className='grid pt-72 max-sm:w-[350px]'>
+    <section className='container pt-72 max-sm:w-[350px]'>
       <div className='justify-self-center max-sm:items-start'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
