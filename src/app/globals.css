@@ -97,6 +97,23 @@ body {
   }
 }
 
+
+/* endless horizontal text */
+@keyframes scroll1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-text1 {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: scroll1 5s linear infinite;
+}
+
 /* Carousel for portfolio */
 .carousel-container {
   display: flex;

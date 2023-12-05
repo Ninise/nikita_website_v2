@@ -5,7 +5,7 @@ export const HomeLanding = () => {
   return (
     <section className='pt-32 self-center'>
       <div className='flex flex-col space-y-8'>
-        <div className='flex items-center justify-between max-sm:gap-4'>
+        <div className='flex items-center justify-between max-sm:gap-4 pe-2'>
           <div className='flex-col space-y-3 max-sm:space-y-1'>
             <svg
               className='max-xl:w-12 max-sm:w-7'
@@ -37,7 +37,7 @@ export const HomeLanding = () => {
           <p className={TEXT_STYLE}>software</p>
 
           <svg
-            className='max-xl:w-12 max-sm:w-8'
+            className='max-xl:w-12 max-sm:w-7'
             xmlns='http://www.w3.org/2000/svg'
             width='56'
             height='53'
