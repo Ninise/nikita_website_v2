@@ -48,7 +48,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               </a>
 
               <a
-                href='linked'
+                href='mailto:nikitin.ninise@gmail.com'
                 className='text-dark-white underline underline-offset-4'>
                 Email
               </a>
@@ -66,7 +66,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               </a>
 
               <a
-                href='linked'
+                href='/Nikita_Nikitin_Software_Engineer.pdf'
                 className='text-dark-white underline underline-offset-4'>
                 Resume
               </a>
