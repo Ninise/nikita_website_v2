@@ -1,3 +1,10 @@
+import Tooltip from './Tooltip';
+
+type SkillItem = {
+  title: string;
+  years: number;
+};
+
 const HomeSkillBubbleItem = ({ text }: { text: string }) => {
   return (
     <div className='flex rounded-full bg-skill-bubble-back hover:bg-dark-blue mx-1 my-2'>
@@ -13,7 +20,7 @@ const HomeSkillListItem = ({
 }: {
   type: string;
   color: string;
-  list: Array<string>;
+  list: Array<SkillItem>;
 }) => {
   return (
     <div className='flex flex-col mb-5'>
@@ -21,10 +28,16 @@ const HomeSkillListItem = ({
       <div className='flex flex-wrap'>
         {list.map((item, i) => {
           return (
-            <HomeSkillBubbleItem
-              text={item}
+            <Tooltip
               key={i}
-            />
+              message={`${item.years} ${
+                item.years > 1 ? 'years' : 'year'
+              } experience`}>
+              <HomeSkillBubbleItem
+                text={item.title}
+                key={i}
+              />
+            </Tooltip>
           );
         })}
       </div>
@@ -48,15 +61,15 @@ export const HomeSkills = () => {
               type='Android'
               color='purple'
               list={[
-                'Java',
-                'Kotlin',
-                'SQLite',
-                'Realm',
-                'Room',
-                'Jetpack Compose',
-                'Hilt',
-                'Firebase',
-                'Retrofit',
+                { title: 'Java', years: 6 },
+                { title: 'Kotlin', years: 4 },
+                { title: 'SQLite', years: 5 },
+                { title: 'Realm', years: 2 },
+                { title: 'Room', years: 2 },
+                { title: 'Jetpack Compose', years: 2 },
+                { title: 'Hilt', years: 2 },
+                { title: 'Firebase', years: 6 },
+                { title: 'Retrofit', years: 7 },
               ]}
             />
 
@@ -64,17 +77,17 @@ export const HomeSkills = () => {
               type='iOS'
               color='green'
               list={[
-                'Swift',
-                'SwiftUI',
-                'UIKit',
-                'MVVM',
-                'CoreData',
-                'Alamofire',
-                'Combine',
-                'WebRTC',
-                'socket.io',
-                'Callkit',
-                'Push notifications',
+                { title: 'Swift', years: 6 },
+                { title: 'SwiftUI', years: 2 },
+                { title: 'UIKit', years: 6 },
+                { title: 'MVVM', years: 5 },
+                { title: 'CoreData', years: 4 },
+                { title: 'Alamofire', years: 6 },
+                { title: 'Combine', years: 2 },
+                { title: 'WebRTC', years: 1 },
+                { title: 'socket.io', years: 3 },
+                { title: 'Callkit', years: 1 },
+                { title: 'Push notifications', years: 5 },
               ]}
             />
 
@@ -82,15 +95,15 @@ export const HomeSkills = () => {
               type='Backend'
               color='orange'
               list={[
-                'JavaScript',
-                'NodeJS',
-                'MongoDB',
-                'Express',
-                'Mongoose',
-                'Python',
-                'Postgres',
-                'Pydantic',
-                'Sqlalchemy',
+                { title: 'JavaScript', years: 5 },
+                { title: 'NodeJS', years: 5 },
+                { title: 'MongoDB', years: 5 },
+                { title: 'Express', years: 5 },
+                { title: 'Mongoose', years: 5 },
+                { title: 'Python', years: 2 },
+                { title: 'Postgres', years: 1 },
+                { title: 'Pydantic', years: 1 },
+                { title: 'Sqlalchemy', years: 1 },
               ]}
             />
 
@@ -98,13 +111,13 @@ export const HomeSkills = () => {
               type='Frontend'
               color='purple'
               list={[
-                'React',
-                'Redux',
-                'NextJS',
-                'Handlebars',
-                'VanillaJS',
-                'TypeScript',
-                'Tailwind',
+                { title: 'React', years: 2 },
+                { title: 'Redux', years: 2 },
+                { title: 'NextJS', years: 1 },
+                { title: 'Handlebars', years: 1 },
+                { title: 'TypeScript', years: 1 },
+                { title: 'jQuery', years: 1 },
+                { title: 'Tailwind', years: 1 },
               ]}
             />
           </div>

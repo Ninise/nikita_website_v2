@@ -17,7 +17,7 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
       <div className='flex flex-col mt-52 z-50 px-[10%]'>
         <button
           className={
-            'flex flex-row fixed top-24 right-24 items-center px-4 py-2 bg-menu-back-button text-dark-blue hover:text-menu-button hover:bg-dark-blue fill-dark-blue rounded-lg ' +
+            'flex flex-row z-30 fixed top-24 right-24 items-center px-4 py-2 bg-menu-back-button text-dark-blue hover:text-menu-button hover:bg-dark-blue fill-dark-blue rounded-lg ' +
             TABLET_BTN +
             MOBILE_BTN
           }
@@ -66,14 +66,14 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
         <HomeFooter isFooter={false} />
       </div>
 
-      <div className='el-wrap x'>
+      <div className='el-wrap z-0 x'>
         <div className='el y'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='500'
             height='500'
             viewBox='0 0 795 795'
-            className='rounded-full blur-2xl'
+            className='rounded-full blur-2xl z-0'
             fill='none'>
             <g filter='url(#filter0_f_727_81)'>
               <circle
@@ -112,14 +112,14 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
         </div>
       </div>
 
-      <div className='fixed top-0 el-wrap x'>
+      <div className='fixed top-0 z-0 el-wrap x'>
         <div className='el y'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='400'
             height='400'
             viewBox='0 0 795 795'
-            className='rounded-full blur-2xl'
+            className='rounded-full blur-2xl z-0'
             fill='none'>
             <g filter='url(#filter0_f_727_79)'>
               <circle
@@ -158,14 +158,14 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
         </div>
       </div>
 
-      <div className='fixed bottom-96 right-96 el-wrap x'>
+      <div className='fixed bottom-96 z-0 right-96 el-wrap x'>
         <div className='el y'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='350'
             height='350'
             viewBox='0 0 795 795'
-            className='rounded-full blur-2xl'
+            className='rounded-full blur-2xl z-0'
             fill='none'>
             <g filter='url(#filter0_f_727_80)'>
               <circle

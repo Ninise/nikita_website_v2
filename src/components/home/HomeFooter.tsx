@@ -20,7 +20,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
           <div className='flex flex-row justify-between space-x-12 px-12 max-xl:space-x-5 max-sm:px-0'>
             <div
               className={
-                'flex flex-col gap-y-8 ' +
+                'flex z-30 flex-col gap-y-8 ' +
                 (isFooter ? 'text-base' : 'text-xl max-2xl:text-base')
               }>
               <a
@@ -38,11 +38,11 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
 
             <div
               className={
-                'flex flex-col gap-y-8 ' +
+                'flex z-30 flex-col gap-y-8 ' +
                 (isFooter ? 'text-base' : 'text-xl max-2xl:text-base')
               }>
               <a
-                href='linked'
+                href='https://api.whatsapp.com/send?phone=14375451337'
                 className='text-dark-white underline underline-offset-4'>
                 Whatsapp
               </a>
@@ -56,7 +56,7 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
 
             <div
               className={
-                'flex flex-col gap-y-8 ' +
+                'flex z-30 flex-col gap-y-8 ' +
                 (isFooter ? 'text-base' : 'text-xl max-2xl:text-base')
               }>
               <a

@@ -6,6 +6,7 @@ type HomeHeaderProps<T> = {
 
 export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
   const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12 max-sm:h-10';
+  const TABLET_BTN: string = ' max-xl:pt-3';
 
   return (
     <section>
@@ -14,7 +15,9 @@ export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
           <button
             className={
               'content-center px-5 py-2 bg-menu-button text-dark-blue hover:text-menu-button hover:bg-dark-blue hover:fill-white fill-dark-blue rounded-lg ' +
-              MOBILE_BTN
+              MOBILE_BTN +
+              ' ' +
+              TABLET_BTN
             }
             onClick={() => {
               fun();

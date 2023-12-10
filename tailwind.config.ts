@@ -25,6 +25,8 @@ const config: Config = {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
 
+      'poop': '#565584',
+
       'menu-button': '#E0E3ED',
       'menu-back': '#101119',
       'menu-back-button': '#292B37',
@@ -33,6 +35,7 @@ const config: Config = {
       'green': '#4EB99D',
       'scroll-text-back': '#7568C833',
       'skill-bubble-back': '#FFFFFF33',
+      'skill-tooltip-back': '#292B37',
 
       'purple': '#7568C8',
       'orange': '#F17A59',
