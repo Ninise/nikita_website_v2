@@ -61,12 +61,12 @@ export const HomeSkills = () => {
               type='Android'
               color='purple'
               list={[
-                { title: 'Java', years: 6 },
-                { title: 'Kotlin', years: 4 },
+                { title: 'Java', years: 7 },
+                { title: 'Kotlin', years: 5 },
                 { title: 'SQLite', years: 5 },
                 { title: 'Realm', years: 2 },
                 { title: 'Room', years: 2 },
-                { title: 'Jetpack Compose', years: 2 },
+                { title: 'Jetpack Compose', years: 3 },
                 { title: 'Hilt', years: 2 },
                 { title: 'Firebase', years: 6 },
                 { title: 'Retrofit', years: 7 },

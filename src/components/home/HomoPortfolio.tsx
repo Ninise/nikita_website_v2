@@ -164,7 +164,7 @@ export const HomePortfolio = () => {
 
   return (
     <section className='container pt-72 max-sm:pt-32 max-sm:w-[350px]'>
-      <div className='w-9/12 justify-self-center max-xl:w-11/12'>
+      <div className='w-9/12 justify-self-center max-xl:w-11/12 max-sm:w-full'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-16'>
             Portfolio

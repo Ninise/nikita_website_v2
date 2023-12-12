@@ -77,15 +77,15 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
         {isFooter ? (
           <div className='flex flex-row justify-center gap-x-16 mt-12'>
             <a
-              href='privacy'
+              href='#'
               className='text-dark-white max-sm:text-xs'>
-              PRIVACY POLICY
+              Designed by Daria M.
             </a>
 
             <a
-              href='privacy'
+              href='#'
               className='text-dark-white max-sm:text-xs'>
-              COOKIES
+              Developed by Nikita N.
             </a>
           </div>
         ) : (

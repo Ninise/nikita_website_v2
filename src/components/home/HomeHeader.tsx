@@ -5,7 +5,7 @@ type HomeHeaderProps<T> = {
 };
 
 export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
-  const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12 max-sm:h-10';
+  const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12 max-sm:h-10 max-sm:pt-2';
   const TABLET_BTN: string = ' max-xl:pt-3';
 
   return (
