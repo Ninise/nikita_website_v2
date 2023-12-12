@@ -5,7 +5,7 @@ export const HomeLanding = () => {
   return (
     <section className='pt-32 self-center'>
       <div className='flex flex-col space-y-8'>
-        <div className='flex items-center justify-between max-sm:gap-4 pe-2'>
+        <div className='flex items-center justify-between max-sm:gap-4 pe-2 animate-fade-down'>
           <div className='flex-col space-y-3 max-sm:space-y-1'>
             <svg
               className='max-xl:w-12 max-sm:w-7'
@@ -37,7 +37,7 @@ export const HomeLanding = () => {
           <p className={TEXT_STYLE}>software</p>
 
           <svg
-            className='max-xl:w-12 max-sm:w-7'
+            className='max-xl:w-12 max-sm:w-7 animate-spin animate-duration-[2000ms]'
             xmlns='http://www.w3.org/2000/svg'
             width='56'
             height='53'
@@ -50,9 +50,11 @@ export const HomeLanding = () => {
           </svg>
         </div>
 
-        <div className='flex items-center justify-center justify-between space-x-16 max-sm:space-x-0 max-sm:justify-around me-7 max-xl:me-1 max-sm:me-0 max-sm:h-[20px]'>
+        <div
+          className='flex items-center justify-center justify-between space-x-16 max-sm:space-x-0 max-sm:justify-around me-7 max-xl:me-1 max-sm:me-0 max-sm:h-[20px] animate-fade-right
+'>
           <svg
-            className='max-xl:w-28 max-sm:w-14'
+            className='max-xl:w-28 max-sm:w-14 animate-shake animate-infinite animate-duration-1000 animate-delay-100'
             xmlns='http://www.w3.org/2000/svg'
             width='157'
             height='98'
@@ -82,7 +84,7 @@ export const HomeLanding = () => {
           </svg>
         </div>
 
-        <div className='flex items-center justify-between'>
+        <div className='flex items-center justify-between animate-fade-left'>
           <p className={TEXT_STYLE}>backend</p>
 
           <svg
@@ -112,7 +114,7 @@ export const HomeLanding = () => {
           </svg>
         </div>
 
-        <div className='flex items-center justify-center justify-between'>
+        <div className='flex items-center justify-center justify-between animate-fade-up'>
           <svg
             className='max-xl:h-16 max-sm:h-10'
             xmlns='http://www.w3.org/2000/svg'
