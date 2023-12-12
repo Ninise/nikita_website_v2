@@ -1,5 +1,8 @@
 import Tooltip from './Tooltip';
 
+import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+
 type SkillItem = {
   title: string;
   years: number;
@@ -47,9 +50,44 @@ const HomeSkillListItem = ({
 
 export const HomeSkills = () => {
   const MAIN_TABLET: string = 'max-xl:flex-col max-xl:space-x-0';
+  const ANIMATION_STYLE: string = 'animate-fade-down animate-duration-[2000ms]';
+
+  const [doAnimation, setDoAnimation] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWindowWidth = () => {
+      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWindowWidth);
+    };
+  }, []);
+
+  const { ref, inView, entry } = useInView({
+    rootMargin: `${isMobile ? '-400px' : ''}`,
+    threshold: 0,
+    onChange(inView, entry) {
+      if (inView) {
+        setDoAnimation(true);
+      }
+    },
+  });
 
   return (
-    <section className='container pt-72 max-sm:pt-32 max-sm:w-[350px]'>
+    <section
+      id='skills'
+      className={`container pt-72 max-sm:pt-32 max-sm:w-[350px] ${
+        doAnimation === true || isMobile
+          ? 'visible ' + ANIMATION_STYLE
+          : 'invisible'
+      }`}
+      ref={ref}>
       <div className='justify-self-center'>
         <div
           className={`flex flex-row justify-between justify-self-center space-x-36 ${MAIN_TABLET}`}>

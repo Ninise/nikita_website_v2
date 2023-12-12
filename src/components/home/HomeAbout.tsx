@@ -1,4 +1,5 @@
-import { Inter, Inconsolata, Lora } from 'next/font/google';
+import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const HomeAboutItem = ({ text }: { text: string }) => {
   return (
@@ -10,8 +11,44 @@ const HomeAboutItem = ({ text }: { text: string }) => {
 };
 
 export const HomeAbout = () => {
+  const ANIMATION_STYLE: string = 'animate-fade-down animate-duration-[2000ms]';
+
+  const [doAnimation, setDoAnimation] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWindowWidth = () => {
+      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWindowWidth);
+    };
+  }, []);
+
+  const { ref, inView, entry } = useInView({
+    rootMargin: `${isMobile ? '-400px' : ''}`,
+    threshold: 0,
+    onChange(inView, entry) {
+      if (inView) {
+        setDoAnimation(true);
+      }
+    },
+  });
+
   return (
-    <section className='container pt-72 max-sm:w-[350px]'>
+    <section
+      id='about'
+      className={`container pt-72 max-sm:w-[350px] ${
+        doAnimation === true || isMobile
+          ? 'visible ' + ANIMATION_STYLE
+          : 'invisible'
+      }`}
+      ref={ref}>
       <div className='justify-self-center max-sm:items-start'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>

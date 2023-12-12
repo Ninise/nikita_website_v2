@@ -10,7 +10,7 @@ export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
 
   return (
     <section>
-      <nav className='fixed top-0 right-0'>
+      <nav className='fixed top-0 right-0 z-10'>
         <div className='items-center justify-between mx-auto p-24 max-xl:px-8'>
           <button
             className={

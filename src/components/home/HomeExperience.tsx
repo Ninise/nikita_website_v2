@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
+import { useInView } from 'react-intersection-observer';
+
 const WorkPlaceItem = ({
   item,
   color,
@@ -82,6 +84,35 @@ export const HomeExperience = () => {
 
   const selectCategory = (idx: number) => setCategory(idx);
 
+  const ANIMATION_STYLE: string = 'animate-fade-down animate-duration-[2000ms]';
+
+  const [doAnimation, setDoAnimation] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWindowWidth = () => {
+      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWindowWidth);
+    };
+  }, []);
+
+  const { ref, inView, entry } = useInView({
+    rootMargin: `${isMobile ? '-400px' : ''}`,
+    threshold: 0,
+    onChange(inView, entry) {
+      if (inView) {
+        setDoAnimation(true);
+      }
+    },
+  });
+
   const categoryData: CategoryData[] = [
     {
       title: 'iOS developer',
@@ -151,23 +182,15 @@ export const HomeExperience = () => {
     },
   ];
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkWindowWidth = () => {
-      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
-    };
-
-    checkWindowWidth();
-    window.addEventListener('resize', checkWindowWidth);
-
-    return () => {
-      window.removeEventListener('resize', checkWindowWidth);
-    };
-  }, []);
-
   return (
-    <section className='container pt-72 max-sm:w-[350px] max-sm:pt-32'>
+    <section
+      id='experience'
+      className={`container pt-72 max-sm:w-[350px] max-sm:pt-32 ${
+        doAnimation === true || isMobile
+          ? 'visible ' + ANIMATION_STYLE
+          : 'invisible'
+      }`}
+      ref={ref}>
       <div className='justify-self-center'>
         <div className='flex flex-row justify-start space-x-8 max-xl:space-x-0 max-xl:flex-col'>
           <h2 className='text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>

@@ -13,8 +13,6 @@ import { HomeFooter } from '../components/home/HomeFooter';
 
 export default function Home() {
   const showMenu = (flag: boolean) => {
-    console.log(`newValue => value ${flag}`);
-
     setShowMenu(flag);
   };
 

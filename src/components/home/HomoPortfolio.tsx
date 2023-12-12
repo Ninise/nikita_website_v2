@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const SkillBubbleItem = ({ text }: { text: string }) => {
   return (
@@ -17,7 +18,7 @@ const CarouselItem = ({ data }: { data: PortfolioData }) => {
 
   useEffect(() => {
     const checkWindowWidth = () => {
-      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+      setIsMobile(window.innerWidth <= 600);
     };
 
     checkWindowWidth();
@@ -151,26 +152,70 @@ export const HomePortfolio = () => {
   ];
 
   let [current, setCurrent] = useState(0);
+  let [prev, setPrev] = useState(0);
 
   let previousSlide = () => {
+    setPrev(current);
     if (current === 0) setCurrent(data.length - 1);
     else setCurrent(current - 1);
   };
 
   let nextSlide = () => {
+    setPrev(current);
     if (current === data.length - 1) setCurrent(0);
     else setCurrent(current + 1);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWindowWidth = () => {
+      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
+    };
+
+    checkWindowWidth();
+    window.addEventListener('resize', checkWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWindowWidth);
+    };
+  }, []);
+
+  const ANIMATION_STYLE: string = 'animate-fade-down animate-duration-[2000ms]';
+
+  const [doAnimation, setDoAnimation] = useState(false);
+
+  const { ref, inView, entry } = useInView({
+    rootMargin: '-400px',
+    threshold: 0,
+    onChange(inView, entry) {
+      if (inView) {
+        setDoAnimation(true);
+      }
+    },
+  });
+
   return (
-    <section className='container pt-72 max-sm:pt-32 max-sm:w-[350px]'>
+    <section
+      id='portfolio'
+      className={`container pt-72 max-sm:pt-32 max-sm:w-[350px] ${
+        doAnimation === true || isMobile
+          ? 'visible ' + ANIMATION_STYLE
+          : 'invisible'
+      }`}
+      ref={ref}>
       <div className='w-9/12 justify-self-center max-xl:w-11/12 max-sm:w-full'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
           <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-16'>
             Portfolio
           </h2>
           <div className='flex flex-col min-w-full'>
-            <div className='flex carousel-container h-[500px] max-xl:h-[450px] max-sm:h-auto'>
+            <div
+              className={`flex carousel-container h-[500px] max-xl:h-[450px] max-sm:h-auto ${
+                current % 2
+                  ? 'animate-fade'
+                  : 'animate-pulse animate-duration-200 animate-once'
+              }`}>
               <CarouselItem data={data[current]} />
             </div>
 

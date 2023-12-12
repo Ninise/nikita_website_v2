@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Link from 'next/link';
+
 import { HomeFooter } from './HomeFooter';
 
 type HomeHeaderProps<T> = {
@@ -41,27 +43,36 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
             </p>
           </div>
         </button>
-        <div className='flex flex-row self-center mt-18 gap-40 max-xl:gap-20 max-sm:gap-5 text-dark-white text-2xl text-medium max-xl:text-xl max-sm:text-sm'>
-          <a
-            className='hover:text-white duration-300'
-            href='#'>
-            About
-          </a>
-          <a
-            className='hover:text-white duration-300'
-            href='#'>
-            Skills
-          </a>
-          <a
-            className='hover:text-white duration-300'
-            href='#'>
-            Experience
-          </a>
-          <a
-            className='hover:text-white duration-300'
-            href='#'>
-            Portfolio
-          </a>
+        <div className='flex flex-row self-center mt-18 z-30 gap-40 max-xl:gap-20 max-sm:gap-5 text-dark-white text-2xl text-medium max-xl:text-xl max-sm:text-sm'>
+          <Link href='#about'>
+            <p
+              className='hover:text-white duration-300'
+              onClick={(e) => fun()}>
+              About
+            </p>
+          </Link>
+          <Link href='#skills'>
+            <p
+              className='hover:text-white duration-300'
+              onClick={(e) => fun()}>
+              Skills
+            </p>
+          </Link>
+
+          <Link href='#experience'>
+            <p
+              className='hover:text-white duration-300'
+              onClick={(e) => fun()}>
+              Experience
+            </p>
+          </Link>
+          <Link href='#portfolio'>
+            <p
+              className='hover:text-white duration-300'
+              onClick={(e) => fun()}>
+              Portfolio
+            </p>
+          </Link>
         </div>
         <HomeFooter isFooter={false} />
       </div>
