@@ -115,6 +115,14 @@ export const HomeExperience = () => {
 
   const categoryData: CategoryData[] = [
     {
+      title: 'Senior Android developer',
+      place: '@OpenText',
+      year: '2024 - Present',
+      country: 'Canada (On-site)',
+      desc: 'Enterprise information management solutions encompassing content and business process management, information exchange, customer experience, analytics, and cyber resilience',
+      resposo: ['Developing a native Android apps '],
+    },
+    {
       title: 'iOS developer',
       place: '@Cuemill',
       year: '2023 - 2023',
