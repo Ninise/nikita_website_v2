@@ -234,7 +234,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 0 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Cuemill
+                      OpenText
                     </p>
                   </button>
                   <button onClick={() => selectCategory(1)}>
@@ -243,7 +243,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 1 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Uplift Prayer
+                      Cuemill
                     </p>
                   </button>
                   <button onClick={() => selectCategory(2)}>
@@ -252,7 +252,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 2 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Starlet
+                      Uplift Prayer
                     </p>
                   </button>
                   <button onClick={() => selectCategory(3)}>
@@ -261,7 +261,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 3 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Computools
+                      Starlet
                     </p>
                   </button>
                   <button onClick={() => selectCategory(4)}>
@@ -269,6 +269,15 @@ export const HomeExperience = () => {
                       className={
                         BASE_FONT_STYLE +
                         (category == 4 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
+                      Computools
+                    </p>
+                  </button>
+                  <button onClick={() => selectCategory(5)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 5 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
                       Education
                     </p>
