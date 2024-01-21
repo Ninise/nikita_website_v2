@@ -119,8 +119,12 @@ export const HomeExperience = () => {
       place: '@OpenText',
       year: '2024 - Present',
       country: 'Canada (On-site)',
-      desc: 'Enterprise information management solutions encompassing content and business process management, information exchange, customer experience, analytics, and cyber resilience',
-      resposo: ['Developing a native Android apps '],
+      desc: 'Enterprise information management solutions company, that encompass content and business process management, information exchange, customer experience, analytics, and cyber resilience.',
+      resposo: [
+        'Developing native Android apps;',
+        'Working in Agile team with SCRUM best practicies;',
+        'Applaying UI and Unit tests.',
+      ],
     },
     {
       title: 'iOS developer',
@@ -219,7 +223,7 @@ export const HomeExperience = () => {
             </div>
           ) : (
             <div className='flex flex-row gap-x-20 max-sm:collapse'>
-              <div className='flex flex-row gap-x-5 h-[300px] ps-28 max-xl:ps-0'>
+              <div className='flex flex-row gap-x-5 h-[350px] ps-28 max-xl:ps-0'>
                 <div className='h-auto w-0.5 bg-dark-white'>
                   <div
                     className={
@@ -313,6 +317,9 @@ export const HomeExperience = () => {
         break;
       case 4:
         return 'inset-y-[240px]';
+        break;
+      case 5:
+        return 'inset-y-[300px]';
         break;
       default:
         return '';
