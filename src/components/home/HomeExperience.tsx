@@ -14,7 +14,7 @@ const WorkPlaceItem = ({
   return (
     <div className='flex flex-col w-full max-sm:mb-14'>
       <div className='flex flex-wrap'>
-        <p className='text-dark-white text-2xl font-medium max-lg:text-lg max-sm:text-base'>
+        <p className='text-black dark:text-dark-white text-2xl font-medium max-lg:text-lg max-sm:text-base'>
           {item.title}
         </p>
         <p
@@ -26,11 +26,11 @@ const WorkPlaceItem = ({
         </p>
       </div>
 
-      <p className='text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
+      <p className='text-black dark:text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
         {`${item.year}, ${item.country}`}
       </p>
 
-      <p className='text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
+      <p className='text-black dark:text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
         {item.desc}
       </p>
 
@@ -55,7 +55,9 @@ const WorkPlaceItem = ({
               </g>
             </svg>
 
-            <p className='text-dark-white text-lg max-sm:text-xs'>{txt}</p>
+            <p className='text-black dark:text-dark-white text-lg max-sm:text-xs'>
+              {txt}
+            </p>
           </div>
         );
       })}
@@ -76,7 +78,7 @@ export const HomeExperience = () => {
   const BASE_FONT_STYLE: string =
     'text-2xl text-start pb-7 max-lg:text-lg max-sm:text-base ';
   const CATEGORY_SELECTED: string = 'text-purple';
-  const CATEGORY_DEFAULT: string = 'text-dark-white';
+  const CATEGORY_DEFAULT: string = 'text-black dark:text-dark-white';
 
   const colors = ['purple', 'orange', 'green'];
 
@@ -205,7 +207,7 @@ export const HomeExperience = () => {
       ref={ref}>
       <div className='justify-self-center'>
         <div className='flex flex-row justify-start space-x-8 max-xl:space-x-0 max-xl:flex-col'>
-          <h2 className='text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
+          <h2 className='text-black dark:text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
             Experience
           </h2>
 

@@ -10,8 +10,10 @@ type SkillItem = {
 
 const HomeSkillBubbleItem = ({ text }: { text: string }) => {
   return (
-    <div className='flex rounded-full bg-skill-bubble-back hover:bg-dark-blue mx-1 my-2'>
-      <p className='text-lg px-5 py-2 text-white max-sm:text-xs'>{text}</p>
+    <div className='flex rounded-full bg-dark-white hover:bg-metal dark:bg-skill-bubble-back dark:hover:bg-dark-blue mx-1 my-2'>
+      <p className='text-lg px-5 py-2 text-black hover:text-white dark:text-white max-sm:text-xs'>
+        {text}
+      </p>
     </div>
   );
 };
@@ -91,7 +93,7 @@ export const HomeSkills = () => {
       <div className='justify-self-center'>
         <div
           className={`flex flex-row justify-between justify-self-center space-x-36 ${MAIN_TABLET}`}>
-          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
+          <h2 className='min-w-max text-black dark:text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
             Skills & Tools
           </h2>
           <div className='flex flex-col'>
@@ -138,7 +140,7 @@ export const HomeSkills = () => {
                 { title: 'MongoDB', years: 5 },
                 { title: 'Express', years: 5 },
                 { title: 'Mongoose', years: 5 },
-                { title: 'Python', years: 2 },
+                { title: 'Python', years: 4 },
                 { title: 'Postgres', years: 1 },
                 { title: 'FastAPI', years: 3 },
                 { title: 'Sqlalchemy', years: 1 },

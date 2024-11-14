@@ -20,6 +20,7 @@ export default function Home() {
 
   return (
     <div
+      className='bg-white dark:bg-black'
       style={{
         backgroundImage: `url('../public/bg_noice.png')})`,
       }}>

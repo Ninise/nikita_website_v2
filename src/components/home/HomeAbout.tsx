@@ -5,7 +5,9 @@ const HomeAboutItem = ({ text }: { text: string }) => {
   return (
     <div className='flex flex-row space-x-5'>
       <p className='text-green text-lg max-sm:text-sm'>&lt;</p>
-      <p className={'text-menu-button text-lg max-sm:text-sm'}>{text}</p>
+      <p className={'text-black dark:text-menu-button text-lg max-sm:text-sm'}>
+        {text}
+      </p>
     </div>
   );
 };
@@ -51,7 +53,7 @@ export const HomeAbout = () => {
       ref={ref}>
       <div className='justify-self-center max-sm:items-start'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
-          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
+          <h2 className='min-w-max text-black dark:text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
             About Me
           </h2>
           <div className='flex flex-col'>
