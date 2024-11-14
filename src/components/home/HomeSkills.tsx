@@ -100,14 +100,14 @@ export const HomeSkills = () => {
               color='purple'
               list={[
                 { title: 'Java', years: 7 },
-                { title: 'Kotlin', years: 5 },
+                { title: 'Kotlin', years: 6 },
                 { title: 'SQLite', years: 5 },
                 { title: 'Realm', years: 2 },
-                { title: 'Room', years: 2 },
+                { title: 'Room', years: 3 },
                 { title: 'Jetpack Compose', years: 3 },
                 { title: 'Hilt', years: 2 },
                 { title: 'Firebase', years: 6 },
-                { title: 'Retrofit', years: 7 },
+                { title: 'Retrofit', years: 8 },
               ]}
             />
 
@@ -115,7 +115,7 @@ export const HomeSkills = () => {
               type='iOS'
               color='green'
               list={[
-                { title: 'Swift', years: 6 },
+                { title: 'Swift', years: 7 },
                 { title: 'SwiftUI', years: 2 },
                 { title: 'UIKit', years: 6 },
                 { title: 'MVVM', years: 5 },
@@ -140,7 +140,7 @@ export const HomeSkills = () => {
                 { title: 'Mongoose', years: 5 },
                 { title: 'Python', years: 2 },
                 { title: 'Postgres', years: 1 },
-                { title: 'Pydantic', years: 1 },
+                { title: 'FastAPI', years: 3 },
                 { title: 'Sqlalchemy', years: 1 },
               ]}
             />

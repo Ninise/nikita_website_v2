@@ -59,13 +59,13 @@ export const HomeAbout = () => {
               Hi, I’m Nikita
             </h2>
             <h2 className='text-green text-2xl font-bold mt-1 max-sm:text-lg'>
-              Software Developer, based in Toronto
+              Senior Software Developer, based in Kitchener, ON, Canada
             </h2>
 
             <div className='flex scroll-container bg-scroll-text-back h-8 my-6 max-xl:w-[600px] max-sm:w-[340px]'>
               <div className='flex scroll-text items-center'>
                 <p className='justify-self-center truncate'>
-                  / 7 years / 31 project / 24/7 support / 7 years / 31 project /
+                  / 9 years / 33 project / 24/7 support / 9 years / 33 project /
                   24/7 support
                 </p>
               </div>
