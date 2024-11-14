@@ -15,7 +15,7 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
   return (
     <div
       id='menu'
-      className='fixed z-30 w-full h-full bg-menu-back justify-center items-top duration-700'>
+      className='fixed z-30 w-full h-full bg-dark-white dark:bg-menu-back justify-center items-top duration-700'>
       <div className='flex flex-col mt-52 z-50 px-[10%]'>
         <button
           className={
@@ -46,14 +46,14 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
         <div className='flex flex-row self-center mt-18 z-30 gap-40 max-xl:gap-20 max-sm:gap-5 text-dark-white text-2xl text-medium max-xl:text-xl max-sm:text-sm'>
           <Link href='#about'>
             <p
-              className='hover:text-white duration-300'
+              className='text-black dark:text-dark-white dark:hover:text-white duration-300'
               onClick={(e) => fun()}>
               About
             </p>
           </Link>
           <Link href='#skills'>
             <p
-              className='hover:text-white duration-300'
+              className='text-black dark:text-dark-white dark:hover:text-white duration-300'
               onClick={(e) => fun()}>
               Skills
             </p>
@@ -61,14 +61,14 @@ export const HomeMenu: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
 
           <Link href='#experience'>
             <p
-              className='hover:text-white duration-300'
+              className='text-black dark:text-dark-white dark:hover:text-white duration-300'
               onClick={(e) => fun()}>
               Experience
             </p>
           </Link>
           <Link href='#portfolio'>
             <p
-              className='hover:text-white duration-300'
+              className='text-black dark:text-dark-white dark:hover:text-white duration-300'
               onClick={(e) => fun()}>
               Portfolio
             </p>

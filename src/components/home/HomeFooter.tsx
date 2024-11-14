@@ -25,13 +25,13 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               }>
               <a
                 href='https://www.linkedin.com/in/ninise/'
-                className='text-dark-white tracking-wider underline underline-offset-4'>
+                className='text-black dark:text-dark-white tracking-wider underline underline-offset-4'>
                 Linkedin
               </a>
 
               <a
                 href='https://github.com/ninise'
-                className='text-dark-white tracking-wider underline underline-offset-4'>
+                className='text-black dark:text-dark-white tracking-wider underline underline-offset-4'>
                 GitHub
               </a>
             </div>
@@ -43,13 +43,13 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               }>
               <a
                 href='https://api.whatsapp.com/send?phone=14375451337'
-                className='text-dark-white tracking-wider underline underline-offset-4'>
+                className='text-black dark:text-dark-white tracking-wider underline underline-offset-4'>
                 Whatsapp
               </a>
 
               <a
                 href='mailto:nikitin.ninise@gmail.com'
-                className='text-dark-white tracking-wider underline underline-offset-4'>
+                className='text-black dark:text-dark-white tracking-wider underline underline-offset-4'>
                 Email
               </a>
             </div>
@@ -61,13 +61,13 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
               }>
               <a
                 href='https://www.upwork.com/freelancers/~01890cef721cd87654'
-                className='text-dark-white tracking-wider underline underline-offset-4'>
+                className='text-black dark:text-dark-white tracking-wider underline underline-offset-4'>
                 Upwork
               </a>
 
               <a
                 href='/Nikita_Nikitin_Software_Engineer.pdf'
-                className='text-dark-white tracking-wider underline underline-offset-4'>
+                className='text-black dark:text-dark-white tracking-wider underline underline-offset-4'>
                 Resume
               </a>
             </div>
@@ -78,13 +78,13 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
           <div className='flex flex-row justify-center gap-x-16 mt-12'>
             <a
               href='#'
-              className='text-dark-white max-sm:text-xs'>
+              className='text-black dark:text-dark-white max-sm:text-xs'>
               Designed by Daria M.
             </a>
 
             <a
               href='#'
-              className='text-dark-white max-sm:text-xs'>
+              className='text-black dark:text-dark-white max-sm:text-xs'>
               Developed by Nikita N.
             </a>
           </div>

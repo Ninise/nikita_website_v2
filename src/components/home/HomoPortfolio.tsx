@@ -5,8 +5,8 @@ import { useInView } from 'react-intersection-observer';
 
 const SkillBubbleItem = ({ text }: { text: string }) => {
   return (
-    <div className='flex rounded-full bg-skill-bubble-back mx-1 my-2'>
-      <p className='text-base px-4 py-1 text-white max-xl:text-sm max-sm:text-xs'>
+    <div className='flex rounded-full bg-dark-white hover:bg-metal dark:bg-skill-bubble-back dark:hover:bg-dark-blue mx-1 my-2'>
+      <p className='text-base px-4 py-1 text-black hover:text-white dark:text-white max-xl:text-sm max-sm:text-xs'>
         {text}
       </p>
     </div>
@@ -47,10 +47,10 @@ const CarouselItem = ({ data }: { data: PortfolioData }) => {
         <h1 className='text-purple text-2xl font-medium max-xl:text-xl'>
           {data.title}
         </h1>
-        <h2 className='text-dark-white text-xl font-medium max-xl:text-lg'>
+        <h2 className='text-black dark:text-dark-white text-xl font-medium max-xl:text-lg'>
           {data.tech}
         </h2>
-        <p className='text-dark-white text-base font-normal max-xl:text-sm'>
+        <p className='text-black dark:text-dark-white text-base font-normal max-xl:text-sm'>
           {data.desc}
         </p>
 
@@ -206,7 +206,7 @@ export const HomePortfolio = () => {
       ref={ref}>
       <div className='w-9/12 justify-self-center max-xl:w-11/12 max-sm:w-full'>
         <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
-          <h2 className='min-w-max text-menu-button text-2xl font-bold max-xl:pb-16'>
+          <h2 className='min-w-max text-black dark:text-menu-button text-2xl font-bold max-xl:pb-16'>
             Portfolio
           </h2>
           <div className='flex flex-col min-w-full'>
