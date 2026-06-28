@@ -4,63 +4,36 @@ import { useState, useEffect } from 'react';
 
 import { useInView } from 'react-intersection-observer';
 
-const WorkPlaceItem = ({
-  item,
-  color,
-}: {
-  item: CategoryData;
-  color: string;
-}) => {
+const WorkPlaceItem = ({ item }: { item: CategoryData }) => {
   return (
     <div className='flex flex-col w-full max-sm:mb-14'>
-      <div className='flex flex-wrap'>
-        <p className='text-black dark:text-dark-white text-2xl font-medium max-lg:text-lg max-sm:text-base'>
+      <div className='flex flex-wrap items-baseline gap-x-2'>
+        <p className='text-black dark:text-white text-2xl font-medium max-lg:text-lg max-sm:text-base'>
           {item.title}
         </p>
-        <p
-          className={
-            `text-${color} ` +
-            'text-2xl font-medium ml-3 max-lg:text-lg max-sm:text-base'
-          }>
+        <p className='text-green text-2xl font-medium max-lg:text-lg max-sm:text-base'>
           {item.place}
         </p>
       </div>
 
-      <p className='text-black dark:text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
-        {`${item.year}, ${item.country}`}
+      <p className='text-black/40 dark:text-white/40 text-base pt-2 max-sm:text-sm'>
+        {`${item.year} · ${item.country}`}
       </p>
 
-      <p className='text-black dark:text-dark-white text-xl pt-3 max-lg:text-lg max-sm:text-sm'>
+      <p className='text-black/60 dark:text-white/60 text-lg pt-4 max-lg:text-base max-sm:text-sm'>
         {item.desc}
       </p>
 
-      {item.resposo.map((txt, idx) => {
-        return (
-          <div
-            key={idx}
-            className='flex flex-row mt-3 gap-x-5'>
-            <svg
-              className='shrink-0'
-              width='15'
-              height='28'
-              viewBox='0 0 15 28'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'>
-              <g id='icon'>
-                <path
-                  id='&#62;'
-                  d='M11.7443 15.3807L3 19.4205V17.1513L9.21307 14.4858L9.14276 14.6072V14.3132L9.21307 14.4347L3 11.7692V9.5L11.7443 13.5398V15.3807Z'
-                  fill='#4EB99D'
-                />
-              </g>
-            </svg>
-
-            <p className='text-black dark:text-dark-white text-lg max-sm:text-xs'>
+      <div className='flex flex-col gap-2 mt-4'>
+        {item.resposo.map((txt, idx) => (
+          <div key={idx} className='flex flex-row gap-4'>
+            <span className='text-green text-sm shrink-0 mt-0.5'>→</span>
+            <p className='text-black/70 dark:text-white/70 text-base max-sm:text-sm'>
               {txt}
             </p>
           </div>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
 };
@@ -76,11 +49,9 @@ type CategoryData = {
 
 export const HomeExperience = () => {
   const BASE_FONT_STYLE: string =
-    'text-2xl text-start pb-7 max-lg:text-lg max-sm:text-base ';
-  const CATEGORY_SELECTED: string = 'text-purple';
-  const CATEGORY_DEFAULT: string = 'text-black dark:text-dark-white';
-
-  const colors = ['purple', 'orange', 'green'];
+    'text-lg text-start pb-6 max-lg:text-base max-sm:text-sm ';
+  const CATEGORY_SELECTED: string = 'text-black dark:text-white font-medium';
+  const CATEGORY_DEFAULT: string = 'text-black/30 dark:text-white/30';
 
   const [category, setCategory] = useState(0);
 
@@ -117,19 +88,31 @@ export const HomeExperience = () => {
 
   const categoryData: CategoryData[] = [
     {
-      title: 'Senior Android developer',
-      place: '@OpenText',
-      year: '2024 - Present',
-      country: 'Canada (On-site)',
-      desc: 'Enterprise information management solutions company, that encompass content and business process management, information exchange, customer experience, analytics, and cyber resilience.',
+      title: 'Senior Mobile Engineer',
+      place: '@Intuit',
+      year: '2025 - Present',
+      country: 'Mountain View, CA',
+      desc: 'Intuit is a $75B financial software company behind TurboTax, QuickBooks, and Credit Karma — serving over 100M customers globally.',
       resposo: [
-        'Developing native Android apps;',
-        'Working in Agile team with SCRUM best practicies;',
-        'Applaying UI and Unit tests.',
+        'Building mobile products at scale across a multi-product platform;',
+        'Operating at Staff Engineer scope — architecture reviews, cross-team standards, technical direction;',
+        'Working within fintech compliance and security constraints on consumer-facing apps;',
       ],
     },
     {
-      title: 'iOS developer',
+      title: 'AI Developer',
+      place: '@OpenText',
+      year: '2024 - 2025',
+      country: 'Canada (On-site)',
+      desc: 'Enterprise secured content management company. Worked in a backend/AI role building LLM-powered tooling on top of the OpenText platform.',
+      resposo: [
+        'Built AI agents and prompt engineering pipelines for enterprise content workflows;',
+        'Developed backend tools and integrations in a secured, compliance-driven environment;',
+        'Worked with LLMs in production — tool use, structured outputs, agent orchestration;',
+      ],
+    },
+    {
+      title: 'Founding Engineer',
       place: '@Cuemill',
       year: '2023 - 2023',
       country: 'Canada (On-site)',
@@ -207,31 +190,26 @@ export const HomeExperience = () => {
       ref={ref}>
       <div className='justify-self-center'>
         <div className='flex flex-row justify-start space-x-8 max-xl:space-x-0 max-xl:flex-col'>
-          <h2 className='text-black dark:text-menu-button text-2xl max-sm:text-lg font-bold max-xl:pb-10'>
-            Experience
-          </h2>
+          <div className='flex flex-col gap-3 max-xl:pb-10'>
+            <div className='w-8 h-0.5 bg-black dark:bg-white'></div>
+            <h2 className='min-w-max text-black dark:text-white text-sm font-medium tracking-widest uppercase'>
+              Experience
+            </h2>
+          </div>
 
           {isMobile ? (
             <div className='flex flex-col collapse max-sm:visible'>
-              {categoryData.map((item, i) => {
-                return (
-                  <WorkPlaceItem
-                    item={item}
-                    key={i}
-                    color={colors[Math.floor(Math.random() * colors.length)]}
-                  />
-                );
-              })}
+              {categoryData.map((item, i) => (
+                <WorkPlaceItem item={item} key={i} />
+              ))}
             </div>
           ) : (
-            <div className='flex flex-row gap-x-20 max-sm:collapse'>
-              <div className='flex flex-row gap-x-5 h-[350px] ps-28 max-xl:ps-0'>
-                <div className='h-auto w-0.5 bg-dark-white'>
+            <div className='flex flex-row gap-x-20 max-sm:collapse w-full'>
+              <div className='flex flex-row gap-x-5 h-[420px] ps-28 max-xl:ps-0 shrink-0'>
+                <div className='h-auto w-0.5 bg-black/10 dark:bg-white/10'>
                   <div
-                    className={
-                      'h-16 w-1 bg-purple relative ' +
-                      getSliderPosition(category)
-                    }></div>
+                    className='h-16 w-1 bg-green relative'
+                    style={{ top: `${category * 52}px` }}></div>
                 </div>
                 <div className='flex flex-col pt-4'>
                   <button onClick={() => selectCategory(0)}>
@@ -240,7 +218,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 0 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      OpenText
+                      Intuit
                     </p>
                   </button>
                   <button onClick={() => selectCategory(1)}>
@@ -249,7 +227,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 1 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Cuemill
+                      OpenText
                     </p>
                   </button>
                   <button onClick={() => selectCategory(2)}>
@@ -258,7 +236,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 2 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Uplift Prayer
+                      Cuemill
                     </p>
                   </button>
                   <button onClick={() => selectCategory(3)}>
@@ -267,7 +245,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 3 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Starlet
+                      Uplift Prayer
                     </p>
                   </button>
                   <button onClick={() => selectCategory(4)}>
@@ -276,7 +254,7 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 4 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
-                      Computools
+                      Starlet
                     </p>
                   </button>
                   <button onClick={() => selectCategory(5)}>
@@ -285,16 +263,22 @@ export const HomeExperience = () => {
                         BASE_FONT_STYLE +
                         (category == 5 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
                       }>
+                      Computools
+                    </p>
+                  </button>
+                  <button onClick={() => selectCategory(6)}>
+                    <p
+                      className={
+                        BASE_FONT_STYLE +
+                        (category == 6 ? CATEGORY_SELECTED : CATEGORY_DEFAULT)
+                      }>
                       Education
                     </p>
                   </button>
                 </div>
               </div>
-              <div className='flex-1'>
-                <WorkPlaceItem
-                  item={categoryData[category]}
-                  color='purple'
-                />
+              <div className='flex-1 min-w-0'>
+                <WorkPlaceItem item={categoryData[category]} />
               </div>
             </div>
           )}
@@ -303,29 +287,4 @@ export const HomeExperience = () => {
     </section>
   );
 
-  function getSliderPosition(idx: number) {
-    switch (idx) {
-      case 0:
-        return '';
-        break;
-      case 1:
-        return 'inset-y-[60px]';
-        break;
-      case 2:
-        return 'inset-y-[120px]';
-        break;
-      case 3:
-        return 'inset-y-[180px]';
-        break;
-      case 4:
-        return 'inset-y-[240px]';
-        break;
-      case 5:
-        return 'inset-y-[300px]';
-        break;
-      default:
-        return '';
-        break;
-    }
-  }
 };

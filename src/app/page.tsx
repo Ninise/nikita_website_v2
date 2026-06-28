@@ -12,34 +12,13 @@ import { HomePortfolio } from '../components/home/HomoPortfolio';
 import { HomeFooter } from '../components/home/HomeFooter';
 
 export default function Home() {
-  const showMenu = (flag: boolean) => {
-    setShowMenu(flag);
-  };
-
   const [isShowMenu, setShowMenu] = useState(false);
 
   return (
-    <div
-      className='bg-white dark:bg-black'
-      style={{
-        backgroundImage: `url('../public/bg_noice.png')})`,
-      }}>
-      {/* {<div className='bg'></div>} */}
-      <HomeHeader
-        fun={() => {
-          showMenu(!isShowMenu);
-        }}
-      />
-      {isShowMenu ? (
-        <HomeMenu
-          fun={() => {
-            showMenu(!isShowMenu);
-          }}
-        />
-      ) : (
-        <div></div>
-      )}
-      <main className='flex flex-col p-24 items-center max-xl:p-28 w-full overflow-x-hidden'>
+    <div className='bg-white dark:bg-black'>
+      <HomeHeader fun={() => setShowMenu(!isShowMenu)} />
+      {isShowMenu && <HomeMenu fun={() => setShowMenu(false)} />}
+      <main className='flex flex-col max-w-5xl mx-auto px-12 max-sm:px-6 w-full overflow-x-hidden'>
         <HomeLanding />
         <HomeAbout />
         <HomeSkills />

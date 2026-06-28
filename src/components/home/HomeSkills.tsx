@@ -1,5 +1,6 @@
-import Tooltip from './Tooltip';
+'use client';
 
+import Tooltip from './Tooltip';
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -10,8 +11,8 @@ type SkillItem = {
 
 const HomeSkillBubbleItem = ({ text }: { text: string }) => {
   return (
-    <div className='flex rounded-full bg-dark-white hover:bg-metal dark:bg-skill-bubble-back dark:hover:bg-dark-blue mx-1 my-2'>
-      <p className='text-lg px-5 py-2 text-black hover:text-white dark:text-white max-sm:text-xs'>
+    <div className='flex rounded-full border border-black/20 dark:border-white/20 hover:border-green hover:text-green mx-1 my-1.5 transition-colors duration-200 cursor-default'>
+      <p className='text-sm px-4 py-1.5 text-black dark:text-white max-sm:text-xs'>
         {text}
       </p>
     </div>
@@ -20,147 +21,114 @@ const HomeSkillBubbleItem = ({ text }: { text: string }) => {
 
 const HomeSkillListItem = ({
   type,
-  color,
   list,
 }: {
   type: string;
-  color: string;
   list: Array<SkillItem>;
 }) => {
   return (
-    <div className='flex flex-col mb-5'>
-      <h1 className={'text-2xl max-sm:text-xl ' + ' text-' + color}>{type}</h1>
-      <div className='flex flex-wrap'>
-        {list.map((item, i) => {
-          return (
-            <Tooltip
-              key={i}
-              message={`${item.years} ${
-                item.years > 1 ? 'years' : 'year'
-              } experience`}>
-              <HomeSkillBubbleItem
-                text={item.title}
-                key={i}
-              />
-            </Tooltip>
-          );
-        })}
+    <div className='flex flex-col mb-8'>
+      <p className='text-black/40 dark:text-white/40 text-xs font-medium tracking-widest uppercase mb-3'>
+        {type}
+      </p>
+      <div className='flex flex-wrap -mx-1'>
+        {list.map((item, i) => (
+          <Tooltip
+            key={i}
+            message={`${item.years} ${item.years > 1 ? 'years' : 'year'} experience`}>
+            <HomeSkillBubbleItem text={item.title} />
+          </Tooltip>
+        ))}
       </div>
     </div>
   );
 };
 
 export const HomeSkills = () => {
-  const MAIN_TABLET: string = 'max-xl:flex-col max-xl:space-x-0';
-  const ANIMATION_STYLE: string = 'animate-fade-down animate-duration-[2000ms]';
-
+  const ANIMATION_STYLE = 'animate-fade-down animate-duration-[2000ms]';
   const [doAnimation, setDoAnimation] = useState(false);
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkWindowWidth = () => {
-      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
-    };
-
+    const checkWindowWidth = () => setIsMobile(window.innerWidth <= 600);
     checkWindowWidth();
     window.addEventListener('resize', checkWindowWidth);
-
-    return () => {
-      window.removeEventListener('resize', checkWindowWidth);
-    };
+    return () => window.removeEventListener('resize', checkWindowWidth);
   }, []);
 
-  const { ref, inView, entry } = useInView({
+  const { ref } = useInView({
     rootMargin: `${isMobile ? '-400px' : ''}`,
     threshold: 0,
-    onChange(inView, entry) {
-      if (inView) {
-        setDoAnimation(true);
-      }
+    onChange(inView) {
+      if (inView) setDoAnimation(true);
     },
   });
 
   return (
     <section
       id='skills'
-      className={`container pt-72 max-sm:pt-32 max-sm:w-[350px] ${
-        doAnimation === true || isMobile
-          ? 'visible ' + ANIMATION_STYLE
-          : 'invisible'
-      }`}
+      className={`pt-48 max-sm:pt-32 ${doAnimation || isMobile ? 'visible ' + ANIMATION_STYLE : 'invisible'}`}
       ref={ref}>
-      <div className='justify-self-center'>
-        <div
-          className={`flex flex-row justify-between justify-self-center space-x-36 ${MAIN_TABLET}`}>
-          <h2 className='min-w-max text-black dark:text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
+      <div className='flex max-xl:flex-col flex-row gap-24 max-xl:gap-12'>
+        <div className='flex flex-col gap-3 shrink-0 pt-2 max-xl:pt-0'>
+          <div className='w-8 h-0.5 bg-black dark:bg-white'></div>
+          <h2 className='min-w-max text-black dark:text-white text-sm font-medium tracking-widest uppercase'>
             Skills & Tools
           </h2>
-          <div className='flex flex-col'>
-            <HomeSkillListItem
-              type='Android'
-              color='purple'
-              list={[
-                { title: 'Java', years: 7 },
-                { title: 'Kotlin', years: 6 },
-                { title: 'SQLite', years: 5 },
-                { title: 'Realm', years: 2 },
-                { title: 'Room', years: 3 },
-                { title: 'Jetpack Compose', years: 3 },
-                { title: 'Hilt', years: 2 },
-                { title: 'Firebase', years: 6 },
-                { title: 'Retrofit', years: 8 },
-              ]}
-            />
+        </div>
 
-            <HomeSkillListItem
-              type='iOS'
-              color='green'
-              list={[
-                { title: 'Swift', years: 7 },
-                { title: 'SwiftUI', years: 2 },
-                { title: 'UIKit', years: 6 },
-                { title: 'MVVM', years: 5 },
-                { title: 'CoreData', years: 4 },
-                { title: 'Alamofire', years: 6 },
-                { title: 'Combine', years: 2 },
-                { title: 'WebRTC', years: 1 },
-                { title: 'socket.io', years: 3 },
-                { title: 'Callkit', years: 1 },
-                { title: 'Push notifications', years: 5 },
-              ]}
-            />
-
-            <HomeSkillListItem
-              type='Backend'
-              color='orange'
-              list={[
-                { title: 'JavaScript', years: 5 },
-                { title: 'NodeJS', years: 5 },
-                { title: 'MongoDB', years: 5 },
-                { title: 'Express', years: 5 },
-                { title: 'Mongoose', years: 5 },
-                { title: 'Python', years: 4 },
-                { title: 'Postgres', years: 1 },
-                { title: 'FastAPI', years: 3 },
-                { title: 'Sqlalchemy', years: 1 },
-              ]}
-            />
-
-            <HomeSkillListItem
-              type='Frontend'
-              color='purple'
-              list={[
-                { title: 'React', years: 2 },
-                { title: 'Redux', years: 2 },
-                { title: 'NextJS', years: 1 },
-                { title: 'Handlebars', years: 1 },
-                { title: 'TypeScript', years: 1 },
-                { title: 'jQuery', years: 1 },
-                { title: 'Tailwind', years: 1 },
-              ]}
-            />
-          </div>
+        <div className='flex flex-col w-full'>
+          <HomeSkillListItem
+            type='iOS'
+            list={[
+              { title: 'Swift', years: 7 },
+              { title: 'SwiftUI', years: 2 },
+              { title: 'UIKit', years: 6 },
+              { title: 'Combine', years: 2 },
+              { title: 'WebRTC', years: 1 },
+              { title: 'CallKit', years: 1 },
+            ]}
+          />
+          <HomeSkillListItem
+            type='Android'
+            list={[
+              { title: 'Kotlin', years: 6 },
+              { title: 'Java', years: 7 },
+              { title: 'Jetpack Compose', years: 3 },
+              { title: 'Room', years: 3 },
+              { title: 'Firebase', years: 6 },
+            ]}
+          />
+          <HomeSkillListItem
+            type='AI & LLM'
+            list={[
+              { title: 'Prompt Engineering', years: 2 },
+              { title: 'Tool Use', years: 2 },
+              { title: 'Agent Orchestration', years: 1 },
+              { title: 'LangChain', years: 1 },
+              { title: 'LangGraph', years: 1 },
+              { title: 'ML Classification', years: 2 },
+            ]}
+          />
+          <HomeSkillListItem
+            type='Backend'
+            list={[
+              { title: 'Python', years: 4 },
+              { title: 'FastAPI', years: 3 },
+              { title: 'Node.js', years: 3 },
+              { title: 'Express', years: 5 },
+              { title: 'MongoDB', years: 5 },
+              { title: 'PostgreSQL', years: 3 },
+            ]}
+          />
+          <HomeSkillListItem
+            type='Frontend'
+            list={[
+              { title: 'React', years: 2 },
+              { title: 'Next.js', years: 1 },
+              { title: 'TypeScript', years: 3 },
+            ]}
+          />
         </div>
       </div>
     </section>

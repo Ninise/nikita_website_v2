@@ -40,7 +40,7 @@ const FiraCodeFont = localFont({
 
 export const metadata: Metadata = {
   title: 'Nikita Nikitin',
-  description: 'iOS | Android | Software Developer',
+  description: 'Staff-level mobile engineer at Intuit. I advise and build with early-stage startups on mobile architecture, fintech, and scaling iOS/Android products.',
 };
 
 export default function RootLayout({

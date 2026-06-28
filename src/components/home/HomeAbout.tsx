@@ -1,84 +1,77 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const HomeAboutItem = ({ text }: { text: string }) => {
+const OfferItem = ({ title, desc }: { title: string; desc: string }) => {
   return (
-    <div className='flex flex-row space-x-5'>
-      <p className='text-green text-lg max-sm:text-sm'>&lt;</p>
-      <p className={'text-black dark:text-menu-button text-lg max-sm:text-sm'}>
-        {text}
-      </p>
+    <div className='flex flex-col gap-2 py-8 border-b border-black/10 dark:border-white/10 last:border-0'>
+      <h3 className='text-3xl font-bold text-black dark:text-white max-xl:text-2xl max-sm:text-xl'>
+        {title}
+      </h3>
+      <p className='text-black/50 dark:text-white/50 text-lg max-sm:text-base'>{desc}</p>
     </div>
   );
 };
 
 export const HomeAbout = () => {
-  const ANIMATION_STYLE: string = 'animate-fade-down animate-duration-[2000ms]';
-
+  const ANIMATION_STYLE = 'animate-fade-down animate-duration-[2000ms]';
   const [doAnimation, setDoAnimation] = useState(false);
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkWindowWidth = () => {
-      setIsMobile(window.innerWidth <= 600); // Adjust the threshold as needed
-    };
-
+    const checkWindowWidth = () => setIsMobile(window.innerWidth <= 600);
     checkWindowWidth();
     window.addEventListener('resize', checkWindowWidth);
-
-    return () => {
-      window.removeEventListener('resize', checkWindowWidth);
-    };
+    return () => window.removeEventListener('resize', checkWindowWidth);
   }, []);
 
-  const { ref, inView, entry } = useInView({
+  const { ref } = useInView({
     rootMargin: `${isMobile ? '-400px' : ''}`,
     threshold: 0,
-    onChange(inView, entry) {
-      if (inView) {
-        setDoAnimation(true);
-      }
+    onChange(inView) {
+      if (inView) setDoAnimation(true);
     },
   });
 
   return (
     <section
       id='about'
-      className={`container pt-72 max-sm:w-[350px] ${
-        doAnimation === true || isMobile
-          ? 'visible ' + ANIMATION_STYLE
-          : 'invisible'
-      }`}
+      className={`pt-48 max-sm:pt-32 ${doAnimation || isMobile ? 'visible ' + ANIMATION_STYLE : 'invisible'}`}
       ref={ref}>
-      <div className='justify-self-center max-sm:items-start'>
-        <div className='flex max-xl:flex-col flex-row justify-between justify-self-center space-x-36 max-xl:space-x-0'>
-          <h2 className='min-w-max text-black dark:text-menu-button text-2xl font-bold max-xl:pb-10 max-sm:text-xl'>
+      <div className='flex max-xl:flex-col flex-row gap-24 max-xl:gap-12'>
+        <div className='flex flex-col gap-3 shrink-0 pt-8 max-xl:pt-0'>
+          <div className='w-8 h-0.5 bg-black dark:bg-white'></div>
+          <h2 className='min-w-max text-black dark:text-white text-sm font-medium tracking-widest uppercase'>
             About Me
           </h2>
-          <div className='flex flex-col'>
-            <h2 className='text-green text-2xl font-bold max-sm:text-lg'>
-              Hi, I’m Nikita
-            </h2>
-            <h2 className='text-green text-2xl font-bold mt-1 max-sm:text-lg'>
-              Senior Software Developer, based in Kitchener, ON, Canada
-            </h2>
+        </div>
 
-            <div className='flex scroll-container bg-scroll-text-back h-8 my-6 max-xl:w-[600px] max-sm:w-[340px]'>
-              <div className='flex scroll-text items-center'>
-                <p className='justify-self-center truncate'>
-                  / 9 years / 33 project / 24/7 support / 9 years / 33 project /
-                  24/7 support
-                </p>
-              </div>
-            </div>
+        <div className='flex flex-col w-full'>
+          <p className='text-black dark:text-white text-xl max-sm:text-base mb-2'>
+            Hi, I&apos;m Nikita. Based in San Francisco Bay Area, California.
+          </p>
+          <p className='text-black/50 dark:text-white/50 text-xl max-sm:text-base mb-10'>
+            10 years across fintech, enterprise, and startups — both building and advising.
+          </p>
 
-            <div className='space-y-5'>
-              <HomeAboutItem text='pay strong attention to app architecture and UI/ UX quality;' />
-              <HomeAboutItem text='able to bring your product to the market from inception, through specification, architecture, design, implementation, and testing;' />
-              <HomeAboutItem text="treat each project responsibly, I'm always in touch, and complete the work on time;" />
-              <HomeAboutItem text='up-to-date with the latest development trends, techniques, and technologies.' />
-            </div>
+          <div>
+            <OfferItem
+              title='Architecture advice'
+              desc='I help founders make the right mobile stack decisions early, before they become expensive to undo.'
+            />
+            <OfferItem
+              title='Hands-on building'
+              desc='I can join as a fractional CTO or lead engineer to ship your iOS/Android MVP alongside your team.'
+            />
+            <OfferItem
+              title='Broad depth'
+              desc='10 years across fintech (Intuit), enterprise security (OpenText), and startups — I understand compliance constraints, secure architecture, and AI tooling, not just mobile.'
+            />
+            <OfferItem
+              title='Scale experience'
+              desc='Platform teams, mobile CI/CD, multi-product SDKs, release trains — I have run it and can help you build the right foundations.'
+            />
           </div>
         </div>
       </div>

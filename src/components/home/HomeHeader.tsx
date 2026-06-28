@@ -1,61 +1,47 @@
-import React from 'react';
+'use client';
 
-type HomeHeaderProps<T> = {
-  fun: T;
+import Link from 'next/link';
+
+type HomeHeaderProps = {
+  fun: () => void;
 };
 
-export const HomeHeader: React.FC<HomeHeaderProps<() => void>> = ({ fun }) => {
-  const MOBILE_BTN: string = ' max-sm:px-1 max-sm:w-12 max-sm:h-10 max-sm:pt-2';
-  const TABLET_BTN: string = ' max-xl:pt-3';
-
+export const HomeHeader = ({ fun }: HomeHeaderProps) => {
   return (
-    <section>
-      <nav className='fixed top-0 right-0 z-10'>
-        <div className='items-center justify-between mx-auto p-24 max-xl:px-8'>
-          <button
-            className={
-              'content-center px-5 py-2 bg-menu-button text-dark-blue hover:text-menu-button hover:bg-dark-blue hover:fill-white fill-dark-blue rounded-lg ' +
-              MOBILE_BTN +
-              ' ' +
-              TABLET_BTN
-            }
-            onClick={() => {
-              fun();
-            }}>
-            <div className='inline-flex items-center space-x-4'>
-              <svg
-                className='max-xl:h-6'
-                width='22'
-                height='18'
-                viewBox='0 0 24 18'
-                xmlns='http://www.w3.org/2000/svg'>
-                <rect
-                  y='0.5'
-                  width='24'
-                  height='3'
-                  rx='0.3'
-                />
-                <rect
-                  y='7.5'
-                  width='24'
-                  height='3'
-                  rx='0.3'
-                />
-                <rect
-                  y='14.5'
-                  width='24'
-                  height='3'
-                  rx='0.3'
-                />
-              </svg>
+    <nav className='fixed top-0 w-full z-10 bg-white/95 dark:bg-black/95 backdrop-blur-sm border-b border-black/5 dark:border-white/5'>
+      <div className='max-w-5xl mx-auto px-12 max-sm:px-6 py-5 flex justify-between items-center'>
+        <a href='#' className='text-black dark:text-white text-sm font-bold tracking-widest'>
+          NN
+        </a>
 
-              <p className='text-lg font-medium max-xl:text-base max-sm:hidden'>
-                MENU
-              </p>
-            </div>
-          </button>
+        <div className='hidden sm:flex items-center gap-10'>
+          <Link href='#about' className='text-black/40 dark:text-white/40 text-sm hover:text-black dark:hover:text-white transition-colors duration-200'>
+            About
+          </Link>
+          <Link href='#skills' className='text-black/40 dark:text-white/40 text-sm hover:text-black dark:hover:text-white transition-colors duration-200'>
+            Skills
+          </Link>
+          <Link href='#experience' className='text-black/40 dark:text-white/40 text-sm hover:text-black dark:hover:text-white transition-colors duration-200'>
+            Experience
+          </Link>
+          <Link href='#portfolio' className='text-black/40 dark:text-white/40 text-sm hover:text-black dark:hover:text-white transition-colors duration-200'>
+            Portfolio
+          </Link>
+          <Link
+            href='#contact'
+            className='text-black dark:text-white text-sm font-medium hover:text-green transition-colors duration-200'>
+            Contact
+          </Link>
         </div>
-      </nav>
-    </section>
+
+        <button className='sm:hidden text-black dark:text-white' onClick={fun}>
+          <svg width='22' height='18' viewBox='0 0 24 18' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
+            <rect y='0.5' width='24' height='3' rx='0.3' />
+            <rect y='7.5' width='24' height='3' rx='0.3' />
+            <rect y='14.5' width='24' height='3' rx='0.3' />
+          </svg>
+        </button>
+      </div>
+    </nav>
   );
 };

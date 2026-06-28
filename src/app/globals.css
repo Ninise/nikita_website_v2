@@ -2,161 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  background: white;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  body {
+    background: black;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-
-
-.bg {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200vh;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation .2s infinite;
-  opacity: .9;
-  visibility: visible;
-}
-
-@keyframes bg-animation {
-    0% { transform: translate(0,0) }
-    10% { transform: translate(-5%,-5%) }
-    20% { transform: translate(-10%,5%) }
-    30% { transform: translate(5%,-10%) }
-    40% { transform: translate(-5%,15%) }
-    50% { transform: translate(-10%,5%) }
-    60% { transform: translate(15%,0) }
-    70% { transform: translate(0,10%) }
-    80% { transform: translate(-15%,0) }
-    90% { transform: translate(10%,5%) }
-    100% { transform: translate(5%,0) }
-}
-
-.scroll-container {
-  overflow: hidden;
-}
-
-.scroll-text {
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  
-  -moz-animation: my-animation 10s linear infinite;
-  -webkit-animation: my-animation 10s linear infinite;
-  animation: my-animation 15s linear infinite;
-}
-
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from { -moz-transform: translateX(100%); }
-  to { -moz-transform: translateX(-100%); }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-  from { -webkit-transform: translateX(100%); }
-  to { -webkit-transform: translateX(-100%); }
-}
-
-@keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
-
-
-/* endless horizontal text */
-@keyframes scroll1 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.scrolling-text1 {
-  white-space: nowrap;
-  overflow: hidden;
-  animation: scroll1 5s linear infinite;
 }
 
 /* Carousel for portfolio */
 .carousel-container {
   display: flex;
-  transition: transform 0.5s ease; /* Use transition for a smooth fade effect */
+  transition: transform 0.5s ease;
 }
 
 .carousel-item {
   opacity: 0;
-  transition: opacity 0.5s ease; /* Use transition for a smooth fade effect */
+  transition: opacity 0.5s ease;
 }
 
 .carousel-item.active {
   opacity: 1;
-}
-
-
-:root {
-  --width: 300px;
-  --height: 500px;
-  --x-speed: 23s;
-  --y-speed: 7s;
-  --transition-speed: 2.2s;
-}
-
-.el { 
-  width: var(--width);
-  height: var(--height);
-}
-
-.x {
-  animation: x var(--x-speed) linear infinite alternate;
-}
-.y {
-  animation: y var(--y-speed) linear infinite alternate;
-}
-
-@keyframes x {
-  100% {
-    transform: translateX(calc(100svh - (300px)));
-  }
-}
-@keyframes y {
-  100% {
-    transform: translateY(calc(100svh - (300px)));
-  }
 }
