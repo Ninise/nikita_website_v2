@@ -12,6 +12,99 @@ body {
   }
 }
 
+/* Glowing rotating gradient border */
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glow-spin {
+  to { --glow-angle: 360deg; }
+}
+
+.glow-border {
+  position: relative;
+  border-radius: 16px;
+  cursor: default;
+}
+
+/* Blurry aura layer */
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from var(--glow-angle),
+    #4EB99D, #60a5fa, #a78bfa, #f472b6, #fb923c, #4EB99D
+  );
+  opacity: 0;
+  filter: blur(16px);
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Crisp border layer */
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background: conic-gradient(
+    from var(--glow-angle),
+    #4EB99D, #60a5fa, #a78bfa, #f472b6, #fb923c, #4EB99D
+  ) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.glow-border:hover::before,
+.glow-border:hover::after {
+  opacity: 0.5;
+  animation: glow-spin 4s linear infinite;
+}
+
+/* Always-on glow border for contact form */
+.glow-border-always::before,
+.glow-border-always::after {
+  opacity: 0.4;
+  animation: glow-spin 8s linear infinite;
+}
+
+.glow-border-always:hover::before,
+.glow-border-always:hover::after {
+  opacity: 0.65;
+}
+
+/* Experience sidebar line glow */
+@keyframes line-glow {
+  0%, 100% {
+    box-shadow: 0 0 4px #4EB99D, 0 0 10px #4EB99D60;
+  }
+  50% {
+    box-shadow: 0 0 10px #4EB99D, 0 0 24px #4EB99D80, 0 0 40px #4EB99D30;
+  }
+}
+
+.glow-line {
+  animation: line-glow 2.5s ease-in-out infinite;
+}
+
+/* Skill chip pop-in */
+@keyframes chip-pop {
+  0%   { opacity: 0; transform: scale(0.7) translateY(8px); }
+  65%  { transform: scale(1.08) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
 /* Carousel for portfolio */
 .carousel-container {
   display: flex;

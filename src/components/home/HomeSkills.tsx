@@ -9,9 +9,11 @@ type SkillItem = {
   years: number;
 };
 
-const HomeSkillBubbleItem = ({ text }: { text: string }) => {
+const HomeSkillBubbleItem = ({ text, animate, delay }: { text: string; animate: boolean; delay: number }) => {
   return (
-    <div className='flex rounded-full border border-black/20 dark:border-white/20 hover:border-green hover:text-green mx-1 my-1.5 transition-colors duration-200 cursor-default'>
+    <div
+      className='flex rounded-full border border-black/20 dark:border-white/20 hover:border-green hover:text-green hover:-translate-y-0.5 mx-1 my-1.5 transition-all duration-200 cursor-default'
+      style={animate ? { animation: `chip-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both`, animationDelay: `${delay}ms` } : { opacity: 0 }}>
       <p className='text-sm px-4 py-1.5 text-black dark:text-white max-sm:text-xs'>
         {text}
       </p>
@@ -22,9 +24,11 @@ const HomeSkillBubbleItem = ({ text }: { text: string }) => {
 const HomeSkillListItem = ({
   type,
   list,
+  animate,
 }: {
   type: string;
   list: Array<SkillItem>;
+  animate: boolean;
 }) => {
   return (
     <div className='flex flex-col mb-8'>
@@ -36,7 +40,7 @@ const HomeSkillListItem = ({
           <Tooltip
             key={i}
             message={`${item.years} ${item.years > 1 ? 'years' : 'year'} experience`}>
-            <HomeSkillBubbleItem text={item.title} />
+            <HomeSkillBubbleItem text={item.title} animate={animate} delay={i * 50} />
           </Tooltip>
         ))}
       </div>
@@ -78,57 +82,11 @@ export const HomeSkills = () => {
         </div>
 
         <div className='flex flex-col w-full'>
-          <HomeSkillListItem
-            type='iOS'
-            list={[
-              { title: 'Swift', years: 7 },
-              { title: 'SwiftUI', years: 2 },
-              { title: 'UIKit', years: 6 },
-              { title: 'Combine', years: 2 },
-              { title: 'WebRTC', years: 1 },
-              { title: 'CallKit', years: 1 },
-            ]}
-          />
-          <HomeSkillListItem
-            type='Android'
-            list={[
-              { title: 'Kotlin', years: 6 },
-              { title: 'Java', years: 7 },
-              { title: 'Jetpack Compose', years: 3 },
-              { title: 'Room', years: 3 },
-              { title: 'Firebase', years: 6 },
-            ]}
-          />
-          <HomeSkillListItem
-            type='AI & LLM'
-            list={[
-              { title: 'Prompt Engineering', years: 2 },
-              { title: 'Tool Use', years: 2 },
-              { title: 'Agent Orchestration', years: 1 },
-              { title: 'LangChain', years: 1 },
-              { title: 'LangGraph', years: 1 },
-              { title: 'ML Classification', years: 2 },
-            ]}
-          />
-          <HomeSkillListItem
-            type='Backend'
-            list={[
-              { title: 'Python', years: 4 },
-              { title: 'FastAPI', years: 3 },
-              { title: 'Node.js', years: 3 },
-              { title: 'Express', years: 5 },
-              { title: 'MongoDB', years: 5 },
-              { title: 'PostgreSQL', years: 3 },
-            ]}
-          />
-          <HomeSkillListItem
-            type='Frontend'
-            list={[
-              { title: 'React', years: 2 },
-              { title: 'Next.js', years: 1 },
-              { title: 'TypeScript', years: 3 },
-            ]}
-          />
+          <HomeSkillListItem animate={doAnimation || isMobile} type='iOS' list={[{ title: 'Swift', years: 7 }, { title: 'SwiftUI', years: 2 }, { title: 'UIKit', years: 6 }, { title: 'Combine', years: 2 }, { title: 'WebRTC', years: 1 }, { title: 'CallKit', years: 1 }]} />
+          <HomeSkillListItem animate={doAnimation || isMobile} type='Android' list={[{ title: 'Kotlin', years: 6 }, { title: 'Java', years: 7 }, { title: 'Jetpack Compose', years: 3 }, { title: 'Room', years: 3 }, { title: 'Firebase', years: 6 }]} />
+          <HomeSkillListItem animate={doAnimation || isMobile} type='AI & LLM' list={[{ title: 'Prompt Engineering', years: 2 }, { title: 'Tool Use', years: 2 }, { title: 'Agent Orchestration', years: 1 }, { title: 'LangChain', years: 1 }, { title: 'LangGraph', years: 1 }, { title: 'ML Classification', years: 2 }]} />
+          <HomeSkillListItem animate={doAnimation || isMobile} type='Backend' list={[{ title: 'Python', years: 4 }, { title: 'FastAPI', years: 3 }, { title: 'Node.js', years: 3 }, { title: 'Express', years: 5 }, { title: 'MongoDB', years: 5 }, { title: 'PostgreSQL', years: 3 }]} />
+          <HomeSkillListItem animate={doAnimation || isMobile} type='Frontend' list={[{ title: 'React', years: 2 }, { title: 'Next.js', years: 1 }, { title: 'TypeScript', years: 3 }]} />
         </div>
       </div>
     </section>

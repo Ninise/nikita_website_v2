@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 const OfferItem = ({ title, desc }: { title: string; desc: string }) => {
   return (
-    <div className='flex flex-col gap-2 py-8 border-b border-black/10 dark:border-white/10 last:border-0'>
+    <div className='glow-border flex flex-col gap-2 py-8 px-4 -mx-4 border-b border-black/10 dark:border-white/10 hover:border-transparent transition-colors duration-500 last:border-0'>
       <h3 className='text-3xl font-bold text-black dark:text-white max-xl:text-2xl max-sm:text-xl'>
         {title}
       </h3>

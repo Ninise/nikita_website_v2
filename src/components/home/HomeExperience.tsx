@@ -208,7 +208,7 @@ export const HomeExperience = () => {
               <div className='flex flex-row gap-x-5 h-[420px] ps-28 max-xl:ps-0 shrink-0'>
                 <div className='h-auto w-0.5 bg-black/10 dark:bg-white/10'>
                   <div
-                    className='h-16 w-1 bg-green relative'
+                    className='glow-line h-16 w-1 bg-green relative rounded-full transition-all duration-300'
                     style={{ top: `${category * 52}px` }}></div>
                 </div>
                 <div className='flex flex-col pt-4'>

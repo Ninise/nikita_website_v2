@@ -94,7 +94,7 @@ export default function ChatContact() {
     stage === "done" ? "Talk soon!" : "Message";
 
   return (
-    <div className="border border-black/10 dark:border-white/10 rounded-2xl p-6 w-4/5 max-sm:w-full mx-auto">
+    <div className="glow-border glow-border-always rounded-2xl p-6 w-4/5 max-sm:w-full mx-auto">
       {/* Messages */}
       <div className="flex flex-col gap-2.5 min-h-[120px] mb-5">
         {messages.map((msg) => (
