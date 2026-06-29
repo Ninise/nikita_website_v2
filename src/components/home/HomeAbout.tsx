@@ -70,7 +70,7 @@ export const HomeAbout = () => {
             />
             <OfferItem
               title='Scale experience'
-              desc='Platform teams, mobile CI/CD, multi-product SDKs, release trains — I have run it and can help you build the right foundations.'
+              desc="I've seen what breaks at scale and what never should have been built that way. I help startups make technical decisions today that won't become expensive regrets at Series A."
             />
           </div>
         </div>

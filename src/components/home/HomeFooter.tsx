@@ -4,6 +4,14 @@ export const HomeFooter = ({ isFooter }: { isFooter: boolean }) => {
   return (
     <section id='contact' className='pt-48 pb-24 max-sm:pt-32'>
       <div className='flex flex-col gap-12'>
+        <div className='flex flex-col gap-3'>
+          <h2 className='text-3xl font-bold text-black dark:text-white max-sm:text-2xl'>
+            Let&apos;s talk.
+          </h2>
+          <p className='text-black/50 dark:text-white/50 text-lg max-sm:text-base max-w-lg'>
+            I work with founders as an advisor, fractional CTO, or hands-on lead engineer. If any of that sounds useful — start here.
+          </p>
+        </div>
         <ChatContact />
 
         {isFooter && (

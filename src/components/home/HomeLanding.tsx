@@ -5,14 +5,11 @@ export const HomeLanding = () => {
         Nikita<br />Nikitin.
       </h1>
       <div className='flex flex-col gap-2 max-w-lg'>
-        <p className='text-2xl text-black/40 dark:text-white/40 max-sm:text-xl'>
-          Staff Mobile Engineer at Intuit.
-        </p>
-        <p className='text-2xl text-black/40 dark:text-white/40 max-sm:text-xl'>
-          10 years in iOS, Android, and fintech.
-        </p>
-        <p className='text-2xl text-black dark:text-white max-sm:text-xl mt-1'>
+        <p className='text-2xl text-black dark:text-white max-sm:text-xl'>
           I help startups build mobile right the first time.
+        </p>
+        <p className='text-2xl text-black/40 dark:text-white/40 max-sm:text-xl mt-1'>
+          Senior Mobile Engineer at Intuit · 10 years in iOS, Android & fintech.
         </p>
       </div>
     </section>

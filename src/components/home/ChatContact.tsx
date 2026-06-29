@@ -19,8 +19,11 @@ function Avatar() {
 }
 
 const submitContact = async (payload: { name: string; email: string }) => {
-  // TODO: replace with actual API endpoint
-  console.log("Contact payload ready:", payload);
+  await fetch("https://consensus-server-production.up.railway.app/api/nnikitin_site", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
 };
 
 export default function ChatContact() {
